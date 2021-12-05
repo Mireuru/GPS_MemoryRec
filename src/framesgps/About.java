@@ -6,11 +6,6 @@
 package framesgps;
 
 import java.awt.Color;
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +16,7 @@ public class About extends javax.swing.JFrame {
     /**
      * Creates new form About
      */
+    //Se declaran objetos de las clases a usar
     Imagen im = new Imagen();
     Interact inter = new Interact();
     Player pl = new Player();
@@ -28,16 +24,25 @@ public class About extends javax.swing.JFrame {
     
     public About() {
         initComponents();
+        //Se centra el fram
         this.setLocationRelativeTo(null);
+        //Se le pone el titulo apropiado
         this.setTitle("Acerca de");
+        //Se le asigna como icono el perteneciente al proyecto
+        //utilizando un método propio
         im.setIconGeneral(this);
         
+        //Se establece la imagen del proyecto a la etiqueta
         im.setImageLabel(241, 293, "memRec.png", jLabel10);
         
+        //Se establece la imagen del botón de menú al botón
         im.setImageBoton(200,100,"BotonMenu.png", jButton15);
+        //Se crean los objetos de los colores a usar
         Color color = new Color(102, 189, 230);
         Color color2 = new Color(255, 255, 255);
+        //Se establece el color del fondo
         getContentPane().setBackground(color);
+        //Se establece el color de los paneles
         this.jPanel1.setBackground(color);
         this.jPanel2.setBackground(color2);
         this.jPanel3.setBackground(color);
@@ -214,9 +219,9 @@ public class About extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Inicializa el objeto de tipo Menu
+        inter.back(men, this);  //LLama al método para hacer un cambio de ventana
     }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
