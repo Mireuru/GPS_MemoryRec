@@ -17,18 +17,28 @@ public class MemoriaCortoPlazo2 extends javax.swing.JFrame {
      * Creates new form MemoriaCortoPlazo2
      */
     Menu men;
+    //declaracion de objetos
     Interact inter = new Interact();
+    Imagen im = new Imagen();
+    Color color = new Color(102, 189, 230);
+    
     public MemoriaCortoPlazo2() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        //definicion de la zona de texto
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setLineWrap(true);
-        Imagen im = new Imagen();
+        
+        //titulo del frame
         this.setTitle("Memoria Corto Plazo");
         im.setIconGeneral(this);
+        
+        //mostrar la imegen en el boton menú
         String menu = "BotonMenu.png";
         im.setImageBoton(200,100,menu, botonMenu);
-        Color color = new Color(102, 189, 230);
+        
+        //cambio de color del frame
         getContentPane().setBackground(color);
     }
 
@@ -116,6 +126,7 @@ public class MemoriaCortoPlazo2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
+        //volver al menú
         men = new Menu();
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
