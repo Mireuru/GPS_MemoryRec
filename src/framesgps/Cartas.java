@@ -16,46 +16,53 @@ public class Cartas extends javax.swing.JFrame {
     /**
      * Creates new form Cartas
      */
+    
+    //Se crean los objetos de las clases a usar
     Menu men;
     Interact inter = new Interact();
     Player pl = new Player();
-    
     Imagen im = new Imagen();
     Rand ra = new Rand();
-    JButton [] bots;
-    int[] vals;
+    //Se crean los objetos a usar
+    JButton [] bots;    //Array para los botones
+    int[] vals; //Array para los valores
     int cont=0;
-    String[] nam = new String [52];
-    JButton pres;
-    JButton seg;
-    int pares = 0;
-    int errores = 0;
+    String[] nam = new String [52]; //Array para los nombres
+    JButton pres;   //Botón presionado
+    JButton seg;    //Segundo botón presionado
+    int pares = 0;  //Contador de pares
+    int errores = 0;    //Contador de errores
     
     public Cartas() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Memorama");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrado
+        this.setTitle("Memorama");      //Titulo
+        im.setIconGeneral(this);    //Icono
         
+        //Se crea el color a usar en el fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color
         
         int contB = 0;
-        int [] cartas = ra.getNumeros(52);
-        vals = cartas;
+        int [] cartas = ra.getNumeros(52);  //Se obtiene un array desordenado con valores de 1 a 52
+        vals = cartas;  //Se iguala para su uso global
         
-        String [] noms = new String [52];
+        String [] noms = new String [52];   //Se crea un array para el modo habilitado de los botones
+        //Se crea un array con los nombres de los archivos de imagen a usar en modo deshabilitado
         String [] ims = {"ACR.png","2CR.png","3CR.png","4CR.png","5CR.png","6CR.png","7CR.png","8CR.png","9CR.png","10CR.png","JCR.png","QCR.png","KCR.png",
                          "AD.png","2D.png","3D.png","4D.png","5D.png","6D.png","7D.png","8D.png","9D.png","10D.png","JD.png","QD.png","KD.png",
                          "ACN.png","2CN.png","3CN.png","4CN.png","5CN.png","6CN.png","7CN.png","8CN.png","9CN.png","10CN.png","JCN.png","QCN.png","KCN.png",
                          "AT.png","2T.png","3T.png","4T.png","5T.png","6T.png","7T.png","8T.png","9T.png","10T.png","JT.png","QT.png","KT.png"};
-        
+        //Se iguala para su uso global
         nam = ims;
         
+        //Se crea un arreglo con la parte trasera de las cartas para usar en modo habilitado
         for (int i = 0; i < 52; i++) {
             noms[i] = "cartaAtras.jpg";
         }
         
+        //Arreglo con los botones a usar en el frame para la actividad
         JButton [] botones = {jButton10,jButton11,jButton12,jButton13,
                               jButton14,jButton15,jButton16,
                               jButton17,jButton18,jButton19,
@@ -75,12 +82,15 @@ public class Cartas extends javax.swing.JFrame {
                               jButton97
                              };
         
-        bots = botones;
+        bots = botones; //Igualado para uso global
         
+        //Se establece el icono del boton menu
         im.setImageBoton(250, 75, "BotonMenu.png", jButton1);
         
+        //Se establecen las imagenes habilitadas para cada botón
         im.setIconBoton(cartas, noms, botones, 75, 105);
         
+        //Se establecen las imagenes deshabilitadas para cada botón
         im.setIconBotonDisabled(cartas, nam, botones, 75, 105);
     }
 
@@ -1417,251 +1427,306 @@ public class Cartas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton62ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton62);
     }//GEN-LAST:event_jButton62ActionPerformed
 
     private void jButton63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton63ActionPerformed
-        presBut(jButton63);
-        
+        //Se llama al método para verificar el botón presionado
+        presBut(jButton63);  
     }//GEN-LAST:event_jButton63ActionPerformed
 
     private void jButton96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton96ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton96);
     }//GEN-LAST:event_jButton96ActionPerformed
 
     private void jButton97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton97ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton97);
     }//GEN-LAST:event_jButton97ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton3);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton4);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton5);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton14);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton15);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton24);
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton25);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton42);
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton43);
     }//GEN-LAST:event_jButton43ActionPerformed
 
     private void jButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton64ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton64);
     }//GEN-LAST:event_jButton64ActionPerformed
 
     private void jButton65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton65ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton65);
     }//GEN-LAST:event_jButton65ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton40);
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton41);
     }//GEN-LAST:event_jButton41ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton6);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton7);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton16);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton17);
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton26);
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton27);
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton44);
     }//GEN-LAST:event_jButton44ActionPerformed
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton45);
     }//GEN-LAST:event_jButton45ActionPerformed
 
     private void jButton66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton66ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton66);
     }//GEN-LAST:event_jButton66ActionPerformed
 
     private void jButton67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton67ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton67);
     }//GEN-LAST:event_jButton67ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton22);
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton23);
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton8);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton9);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton18);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton19);
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton28);
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton29);
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton50);
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton51);
     }//GEN-LAST:event_jButton51ActionPerformed
 
     private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton72ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton72);
     }//GEN-LAST:event_jButton72ActionPerformed
 
     private void jButton73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton73ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton73);
     }//GEN-LAST:event_jButton73ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton12);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton13);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton10);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton11);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton20);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton21);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton30);
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton31);
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton52);
     }//GEN-LAST:event_jButton52ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton53);
     }//GEN-LAST:event_jButton53ActionPerformed
 
     private void jButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton74ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton74);
     }//GEN-LAST:event_jButton74ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pl.click();
-        inter.setRanking("Cartas", errores);        
-        men = new Menu();
-        inter.back(men,this);
+        pl.click(); //Sonido de click
+        inter.setRanking("Cartas", errores);    //Se guarda el ranking de la actividad
+        men = new Menu();   //Se inicializa menu
+        inter.back(men,this);   //Se abre menu y se cierra este frame
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton75ActionPerformed
+        //Se llama al método para verificar el botón presionado
         presBut(jButton75);
     }//GEN-LAST:event_jButton75ActionPerformed
 
+    //Metodo para verificar si los botones presionados se corresponden
     public void presBut(JButton but){
-        pl.click();
+        pl.click(); //Sonido de click
         boolean espareja;
-        if(cont==0){
-            pres = but;
-            pres.setEnabled(false);
-            cont++;
+        //Si el contador de botones presionados es 0
+        if(cont==0){   
+            pres = but;     //Se establece en la variable el boton presionado actual
+            pres.setEnabled(false); //Se deshabilita este botón
+            cont++; //Se aumenta el contador
         }
-        else if(cont==1){
-            seg = but;
-            seg.setEnabled(false);
-            cont++;
-            if(pares==25){
+        else if(cont==1){   //En caso de haber ya un botón presionado
+            seg = but;  //Se establece este botón como el segundo
+            seg.setEnabled(false);  //Se deshabilita
+            cont++; //Se aumenta el conador
+            if(pares==25){  //Si se está presionando el ultimo par
+                //Se verifica si es pareja, buscando la posición del botón pres y seg en el arreglo vals
                 espareja = inter.getPareja(vals[inter.getPosBoton(bots, pres)],vals[inter.getPosBoton(bots, seg)]);
-                inter.accPareja(espareja, pres, seg);
-                pl.victoria();
+                inter.accPareja(espareja, pres, seg);   //Si lo es, se deshabilitan ambos botones
+                pl.victoria();  //Se da el sonido de victoria, indicando la misma
             }
         }
         else{
+            //Se verifica si es pareja, buscando la posición del botón pres y seg en el arreglo vals
             espareja = inter.getPareja(vals[inter.getPosBoton(bots, pres)],vals[inter.getPosBoton(bots, seg)]);
-            if(espareja){
-                pl.acierto();
-                pares++;
+            if(espareja){   //Si es pareja
+                pl.acierto();   //Da el sonido de acierto
+                pares++;        //Aumenta la cantidad de pares hechos
             }
-            else{
-                errores++;
-                this.jLabel2.setText("Errores: "+errores);
+            else{   //Si no es pareja
+                errores++;  //Se aumentan los errores
+                this.jLabel2.setText("Errores: "+errores);  //Se escriben los errores
             }
-            inter.accPareja(espareja, pres, seg);
-            cont = 0;
+            inter.accPareja(espareja, pres, seg);   //Si es pareja se deshabilitan los botones
+            cont = 0;   //Se devuelve el contador a 0
         }
         
     }
