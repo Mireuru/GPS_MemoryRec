@@ -2,13 +2,13 @@ Cartas
 31
 
 Colores
-12
+9999
 
 Mem_Semantica
 9999
 
 Mem_Sens_Gustativa
-3
+0
 
 Mem_Sens_Olfativa
 9999
