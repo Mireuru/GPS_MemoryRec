@@ -302,7 +302,7 @@ public class Interact {
     public void setRanking(String key, int errores){
         ArrayList<String> conts = new ArrayList<String>();  //Se crea un ArrayList para los 
         int lin = 0;                                        //contenidos del archivo
-        String ruta = "/records/records.txt";   //Ruta del archivo
+        String ruta = "/records/records.rnk";   //Ruta del archivo
         try {
             //Se crea un archivo nuevo que servirá para obtener la ruta en que
             //se encuentra la aplicación
@@ -349,7 +349,7 @@ public class Interact {
         ArrayList<String> conts = new ArrayList<String>();
         int val = 0;
         try {
-            String ruta = "/records/records.txt";   //Ruta del archivo de texto
+            String ruta = "/records/records.rnk";   //Ruta del archivo de texto
             //Se obtiene la ruta del programa
             File cla = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
             try {

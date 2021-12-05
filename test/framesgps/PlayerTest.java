@@ -92,16 +92,5 @@ public class PlayerTest {
         instance.victoria();
         // TODO review the generated test code and remove the default call to fail.
     }
-
-    /**
-     * Test of tecla method, of class Player.
-     */
-    @Test
-    public void testTecla() throws Exception {
-        System.out.println("tecla");
-        Player instance = new Player();
-        instance.tecla();
-        // TODO review the generated test code and remove the default call to fail.
-    }
     
 }

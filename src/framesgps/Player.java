@@ -17,77 +17,78 @@ import javazoom.jlgui.basicplayer.BasicPlayerException;
  *
  * @author mgarc
  */
+//Esta clase se encarga de los sonidos de la aplicación
 public class Player {
     private BasicPlayer player;
     File cla;
     
+    //Inicializa el objeto de la clase
     public Player() {
-        try {
-            this.cla = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
-        }
         player = new BasicPlayer();
     }
     
+    //Método encargado de leer el valor del volumen en su archivo correspondiente
     public double vol(){
-        String ruta = "/conf/vol.txt";
+        String ruta = "/conf/vol.conf";  //Ruta del archivo de volumen
         String dat = "";
         try {
+            //Se crea un archivo con la ruta completa del archivo de configuración
             File file = new File(cla.getParentFile().getPath()+ruta);
             Scanner sc = new Scanner(file);
-            dat = sc.nextLine();
+            dat = sc.nextLine();    //Se lee la primera linea de texto y se define en una variable
             sc.close();
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return Double.parseDouble(dat);
+        return Double.parseDouble(dat); //Se devuelve la linea leida como un doble
     }
     
+    //Método para el sonido de click
     public void click(){
         try {
+            //Abre el archivo con el sonido de click en la ruta del programa y su posición específica
             player.open(new File(cla.getParentFile().getPath()+"/sounds/click.wav"));
-            player.play();
-            player.setGain(vol());
+            player.play();  //Inicia la reproducción del sonido
+            player.setGain(vol());  //Establece el volumen del sonido reproduciendose
         } catch (BasicPlayerException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    //Método para el sonido de error
     public void error(){
         try {
+            //Abre el archivo con el sonido de error en la ruta del programa y su posición específica
             player.open(new File(cla.getParentFile().getPath()+"/sounds/error.wav"));
-            player.play();
-            player.setGain(vol());
+            player.play();  //Inicia la reproducción del sonido
+            player.setGain(vol());  //Establece el volumen del sonido reproduciendose
         } catch (BasicPlayerException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    //Método para el sonido de acierto
     public void acierto(){
         try {
+            //Abre el archivo con el sonido de acierto en la ruta del programa y su posición específica
             player.open(new File(cla.getParentFile().getPath()+"/sounds/acierto.wav"));
-            player.play();
-            player.setGain(vol());
+            player.play();  //Inicia la reproducción del sonido
+            player.setGain(vol());  //Establece el volumen del sonido reproduciendose
         } catch (BasicPlayerException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    //Método para el sonido de victoria
     public void victoria(){
         try {
+            //Abre el archivo con el sonido de victoria en la ruta del programa y su posición específica
             player.open(new File(cla.getParentFile().getPath()+"/sounds/victoria.wav"));
-            player.play();
-            player.setGain(vol());
+            player.play();  //Inicia la reproducción del sonido
+            player.setGain(vol());  //Establece el volumen del sonido reproduciendose
         } catch (BasicPlayerException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public void tecla() throws BasicPlayerException{
-            player.open(new File(cla.getParentFile().getPath()+"/sounds/tecla.wav"));
-            player.play();
-            player.setGain(vol());
     }
         
 }
