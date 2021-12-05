@@ -37,20 +37,24 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
         initComponents();
         //Declaracion de objeto imagen
         Imagen im = new Imagen();
+        //Declaracion de objeto random
+        Random rnd = new Random();
         //Titulo de la ventana
         this.setLocationRelativeTo(null);
         this.setTitle("Atencion Alternada2");
         im.setIconGeneral(this);
-        //Declaracion de objeto random
-        Random rnd = new Random();
+        
         char c;
+        
         //arreglo de caracteres de 16 espacios
         char[] valor= new char[17];
         //generar un caracter random y guardarlo en el arreglo valor 
+        
         for (int i = 0; i < 17; i++) {
            c  = (char) ('a' + rnd.nextInt(26));
            valor[i]=c;
         }
+        
         //arreglo de 16 botones
         JButton [] bots = { jButton1,
                             jButton2,
@@ -73,12 +77,15 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
         botn = bots;
         //el primer objeto del arreglo valor se muestra en la lable superior
         jLabel1.setText(valor[0]+"");
+        
         //Los valores de valor se imprimen en los botones
         for (int i = 0; i < bots.length; i++) {
             bots[i].setText(valor[i+1]+"");
         }
+        
         //e recibe el valor de la lable
         e=valor[0];
+        
         //ciclo para contar cuantos elementos son iguales al perimero
         for (int i = 1; i < 17; i++) {
             if (valor[i]==valor[0]) {
@@ -90,6 +97,7 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
         //Creacion del boton menu con imagen
         String menu = "BotonMenu.png";
         im.setImageBoton(190,80,menu, botonMenu);
+        
         //Definicion del color del frame
         Color color = new Color(102, 189, 230);
         getContentPane().setBackground(color);
@@ -377,7 +385,9 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /*El funcionamiento de todos los botones es el mismo, 
+      La documentacion de este primer boton aplica a todos,excepto al boton 17*/
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
        //variable a recibe el texto del boton
         a= jButton13.getText().charAt(0);
@@ -647,18 +657,25 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
         pl.click();
+        //escribir en el archivo el nombre de la actividad y cantidad de errores
         inter.setRanking("Letras", errores);
         men = new Menu();
+        //regresar al menú
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
 
     public void revisar(){
+        //reproduccion del audio acierto
         pl.acierto();
+        
         if(d == b){
+            //reproduccion del audio de victoria
             pl.victoria();
+            //desactivar todos los botones de las opciones
             for (int i = 0; i < botn.length; i++) {
                 botn[i].setEnabled(false);
             }
+            //desactivar el boton final
             jButton17.setEnabled(false);
         }
     }

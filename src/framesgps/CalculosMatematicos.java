@@ -14,16 +14,22 @@ import java.util.Random;
  * @author ERIK
  */
 public class CalculosMatematicos extends javax.swing.JFrame {
-    Random rand = new Random();
+    
 
     /**
      * Creates new form CalculosMatematicos
      */
     Menu men;
+    //creacion de objetos 
     Interact inter = new Interact();
     Player pl = new Player();
+    Random rand = new Random();
+    Imagen im = new Imagen();
+    
+    //variable de intentos
     int intent = 0;
     
+    //5 banderas inicializadas en falso
     boolean flag1 = false;
     boolean flag2 = false;
     boolean flag3 = false;
@@ -32,7 +38,7 @@ public class CalculosMatematicos extends javax.swing.JFrame {
     
     public CalculosMatematicos() {
         initComponents();
-        Imagen im = new Imagen();
+        //informacion del frame
         this.setLocationRelativeTo(null);
         this.setTitle("Calculos Matematicos");
         im.setIconGeneral(this);
