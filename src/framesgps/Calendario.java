@@ -17,32 +17,38 @@ public class Calendario extends javax.swing.JFrame {
     /**
      * Creates new form Calendario
      */
+    //Se crean los objetos de las clases a usar
     Menu men;
     Interact inter = new Interact();
     Player pl = new Player();
     
     public Calendario() {
         initComponents();
+        //Se usará la clase Imagen
         Imagen im = new Imagen();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Arbol genealogico");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Se centra
+        this.setTitle("Arbol genealogico"); //Se pone titulo
+        im.setIconGeneral(this);    //Se establece el ícono
         
+        //Se crea el color a usar en el fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color
         
-        
-        
-        
+        //Se crea un objeto de la clase JCalendar
         JCalendar cal = new JCalendar();
+        //Se establece la posición en la cual se econtrará en el frame
         cal.setBounds(0, 0, this.jPanel1.getWidth(), this.jPanel1.getHeight());
-        this.jPanel1.add(cal);
+        this.jPanel1.add(cal);  //Se añade el objeto al panel
         
+        //Se crea un objeto de JTextFieldDateEditor para la visualización de la fecha
         JTextFieldDateEditor fecha = new JTextFieldDateEditor("yyyy/MM/dd","####/##/##", '_');
+        //Se establecen los limites y medidas de éste y donde se encontrará en el panel
         fecha.setBounds(0, 0, this.jPanel2.getWidth(), this.jPanel2.getHeight());
-        fecha.setDate(cal.getDate());
-        this.jPanel2.add(fecha);
+        fecha.setDate(cal.getDate());   //Se establece la fecha que tendrá
+        this.jPanel2.add(fecha);    //Se añade al panel
         
+        //Se establece la imagen del boton de menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton1);
         
     }
@@ -157,9 +163,9 @@ public class Calendario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Se inicializa el objeto menu
+        inter.back(men, this);  //Se abre el menu y se cierra este frame
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
