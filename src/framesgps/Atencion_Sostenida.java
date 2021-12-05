@@ -19,66 +19,91 @@ public class Atencion_Sostenida extends javax.swing.JFrame {
      * Creates new form Atencion_Sostenida
      */
     Menu men;
+    //Creacion de objetos
     Interact inter = new Interact();
+    Player pl = new Player();
+    Imagen im = new Imagen();
+    Rand ra = new Rand();
+    Random rnd = new Random();
+    Color color = new Color(102, 189, 230);
+    
+    //variables contador y boton
     int cont=0;
     JButton pres;
     JButton seg;
-    Player pl = new Player();
     int errores = 0;
     
     public Atencion_Sostenida() {
         initComponents();
-        Imagen im = new Imagen();
-        Rand ra = new Rand();
+        
+        //informacion del frame
         this.setLocationRelativeTo(null);
         this.setTitle("Atencion Sostenida");
         im.setIconGeneral(this);
        
-        Random rnd = new Random();
-       
+        //arreglo de string con 15 espacios
         String[] valor= new String[15]; 
+        //el arreglo valor se rellena con valores aleatorios entre 1 y 10
         for (int i = 0; i < 15; i++) {
             valor[i]= rnd.nextInt((10 - 1) + 1) + 1+"";
         }
+        //la label obtiene un valor random entre 5 y 15
         jLabel2.setText(rnd.nextInt((15 - 5) + 5) + 5+"");
+        
+        //arreglo de botones
         JButton [] botones = {boton1,boton2,boton3,boton4,
                               boton5,boton6,boton7,boton8,
                               boton9,boton10, boton11,boton12,
                               boton13, boton14,boton15};
         
+        //arreglo int recibe una posicion aleatoria hasta la 15
         int [] posiciones = ra.getNumeros(15);
+        
+        //llamada al metodo que escribe texto en botones
         im.setTextBoton(posiciones, valor, botones);
         
-      
+        //mostrar la imagen menú en el boton correspondiente
         String menu = "BotonMenu.png";
-       im.setImageBoton(208,90,menu, botonMenu);
+        im.setImageBoton(208,90,menu, botonMenu);
       
-       
-       Color color = new Color(102, 189, 230);
+        //cambio de color del frame
         getContentPane().setBackground(color);
     }
     public void presBoton(JButton but){
+        //sonido de click
         pl.click();
+        
+        //variable booleana para comprobar
         boolean espareja;
+        
         if(cont==0){
+            //variable pres igualada al boton que realiaza la accion
             pres = but;
-            
+            //boton se desactiva y cont aumenta en 1
             pres.setEnabled(false);
             cont++;
         }
         else{
+            //variable seg igualada al boton que realiaza la accion
             seg = but;
-            
+            //boton se desactiva
             seg.setEnabled(false);
+            //espareja llama al metodo getsuma que recibe el valor de los 2
+            //botones presionados y compara el resultado con el valor de label
             espareja = inter.getSuma(pres.getText(),seg.getText(),Integer.parseInt(jLabel2.getText()));
+            
             if(espareja){
+                //audio de acierto
                 pl.acierto();
             }
             else{
+                //audio de error
                 pl.error();
+                //aumento del numero de errores y su muestra en el label 
                 errores++;
                 this.jLabel3.setText("Errores: "+errores);
             }
+            //contador reseateado a 0 y los botones se mantienen desactivados
             inter.accPareja(espareja, pres, seg);
             cont = 0;
         }
@@ -640,11 +665,16 @@ public class Atencion_Sostenida extends javax.swing.JFrame {
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
         pl.click();
+        //escribir en el archivo la puntuacion aobtenida y el nombre
         inter.setRanking("At_Sostenida", errores);
+        
+        //volver al menú
         men = new Menu();
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
-
+    
+    /*presionar un cualquiera de los siquientes botones solo llamará al metodo
+      presBoton*/
     private void boton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton11ActionPerformed
         presBoton(boton11);
     }//GEN-LAST:event_boton11ActionPerformed
