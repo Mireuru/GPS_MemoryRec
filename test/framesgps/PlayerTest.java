@@ -43,11 +43,10 @@ public class PlayerTest {
     public void testVol() {
         System.out.println("vol");
         Player instance = new Player();
-        double expResult = 0.0;
+        double expResult = 0.40;
         double result = instance.vol();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result,0.40);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,7 +58,6 @@ public class PlayerTest {
         Player instance = new Player();
         instance.click();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -71,7 +69,6 @@ public class PlayerTest {
         Player instance = new Player();
         instance.error();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,7 +80,6 @@ public class PlayerTest {
         Player instance = new Player();
         instance.acierto();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -95,7 +91,6 @@ public class PlayerTest {
         Player instance = new Player();
         instance.victoria();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,7 +102,6 @@ public class PlayerTest {
         Player instance = new Player();
         instance.tecla();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
