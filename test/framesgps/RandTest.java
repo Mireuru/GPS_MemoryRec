@@ -43,11 +43,8 @@ public class RandTest {
     public void testGetCadenaRandom() {
         System.out.println("getCadenaRandom");
         Rand instance = new Rand();
-        String expResult = "";
         String result = instance.getCadenaRandom();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println(result);
     }
 
     /**
@@ -56,13 +53,12 @@ public class RandTest {
     @Test
     public void testGetCadenaRecortada() {
         System.out.println("getCadenaRecortada");
-        String cad = "";
+        String cad = "ABCDEFGHIJKL";
         Rand instance = new Rand();
-        String[] expResult = null;
         String[] result = instance.getCadenaRecortada(cad);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
     }
 
     /**
@@ -71,13 +67,12 @@ public class RandTest {
     @Test
     public void testGetNumeros() {
         System.out.println("getNumeros");
-        int lim = 0;
+        int lim = 8;
         Rand instance = new Rand();
-        int[] expResult = null;
         int[] result = instance.getNumeros(lim);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
     }
 
     /**
@@ -86,14 +81,13 @@ public class RandTest {
     @Test
     public void testGetNumerosFaltantes() {
         System.out.println("getNumerosFaltantes");
-        int[] ra = null;
-        int falt = 0;
+        int[] ra = {5,3,1,2,4};
+        int falt = 3;
         Rand instance = new Rand();
-        int[] expResult = null;
         int[] result = instance.getNumerosFaltantes(ra, falt);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
     }
     
 }
