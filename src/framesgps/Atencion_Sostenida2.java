@@ -7,7 +7,6 @@ package framesgps;
 
 import java.awt.Color;
 import java.util.Random;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -15,38 +14,56 @@ import javax.swing.JLabel;
  * @author ERIK
  */
 public class Atencion_Sostenida2 extends javax.swing.JFrame {
+    //Creacion de objetos
+    Interact inter = new Interact();
     Random rand = new Random();
     Player pl = new Player();
+    Color color = new Color(102, 189, 230);
+    Imagen im = new Imagen();
+    Rand ra = new Rand();
+    
+    //variables int para cada figura
     int intent = 0;
     int cuadros = 0;
     int triangulos = 0;
     int rombos = 0;
     int circulos = 0;
     int romboides = 0;
+    //variable boolean para revisar
     boolean res;
     
     /**
      * Creates new form Atencion_Sostenida2
      */
     Menu men;
-    Interact inter = new Interact();
+    
     public Atencion_Sostenida2() {
         initComponents();
-        Imagen im = new Imagen();
+        //informacion en el frame 
         this.setLocationRelativeTo(null);
         this.setTitle("Atencion Sostenida2");
         im.setIconGeneral(this);
+        
+        //arreglo de sting con los nombres de las imagenes a usar
         String [] fig = {"figura1.png",
                         "figura2.png",
                         "figura3.png",
                         "figura5.png",
                         "figura6.png"};
         int a;
+        
+        //arreglo string de 16 espacios 
         String [] noms = new String[16];
+        
+        //cada espacio del arreglo noms recibe un elemento aleatorio del 
+        //arreglo fig
         for (int i = 0; i < 16; i++) {
             a =  (int) (Math.random() * (5));
             noms[i]=fig[a];
         }
+        /*cada elemento del arreglo noms es revisado,
+          dependiendo del string que tenga el contador de cada figura irá 
+          aumentando*/
         for (int i = 0; i < noms.length; i++) {
             switch (noms[i]) {
                 case "figura1.png":
@@ -69,25 +86,30 @@ public class Atencion_Sostenida2 extends javax.swing.JFrame {
             }
         }
         
-        
-         
-               JLabel [] labels = {jLabel1,jLabel2,jLabel3,jLabel4,
-                              jLabel5,jLabel6,jLabel7,jLabel8,
-                              jLabel9,jLabel10, jLabel11,jLabel12,
-                              jLabel13,jLabel14,jLabel15,jLabel16};
-               Rand ra = new Rand();
-        
-        
+        //arreglo de las 16 labels del frame
+        JLabel [] labels = {jLabel1,jLabel2,jLabel3,jLabel4,
+                            jLabel5,jLabel6,jLabel7,jLabel8,
+                            jLabel9,jLabel10, jLabel11,jLabel12,
+                            jLabel13,jLabel14,jLabel15,jLabel16};
+               
+        //arreglo int que recibe un numero random entre 1 y 16
         int [] posiciones = ra.getNumeros(16);
+        //llamado al metodo que muestra las imagenes en labels
         im.setIconLabel(posiciones, noms, labels, 50, 75);
+        
+        //mostrar la imgen del menpu en el boton menú
         String menu = "BotonMenu.png";
         im.setImageBoton(184,81,menu, botonMenu);
-        Color color = new Color(102, 189, 230);
+        
+        //cambio de color del frame
         getContentPane().setBackground(color);
         
     }
-    
-   public boolean Revisar(int a, int b){
+    //metodo revisar recibe el valor escrito por el usuario y el contador 
+    //de la figura
+    public boolean Revisar(int a, int b){
+        //en caso de que el valor escrito por el usuario no concuerde con el 
+        //contador se retorna falso, caso contrario retorna true
         if (a != b) {
             return false;
         }
@@ -356,32 +378,47 @@ public class Atencion_Sostenida2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
+        //reproduccion del audio click
         pl.click();    
         men = new Menu();
+        //escribir el nombre de la actividad y el numero de intentos en el 
+        //archivo
         inter.setRanking("At_Sost2", intent);
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         pl.click();
+        //verificando que todos los cuadros de texto contengan algo
         if( !jTextField1.getText().equals("") &&
             !jTextField2.getText().equals("") &&
             !jTextField3.getText().equals("") &&
             !jTextField4.getText().equals("") &&
             !jTextField5.getText().equals("")){
-        int a = Integer.parseInt(jTextField1.getText());
-        int b = Integer.parseInt(jTextField2.getText());
-        int c = Integer.parseInt(jTextField3.getText());
-        int d = Integer.parseInt(jTextField4.getText());
-        int e = Integer.parseInt(jTextField5.getText());
-        boolean reva = Revisar(a,rombos);
-        boolean revb = Revisar(b,circulos);
-        boolean revc = Revisar(c,triangulos);
-        boolean revd = Revisar(d,romboides);
-        boolean reve = Revisar(e,cuadros);
+            
+            //los valores de los cuadros de texto se convierten en int y 
+            //se guardan en variables
+            int a = Integer.parseInt(jTextField1.getText());
+            int b = Integer.parseInt(jTextField2.getText());
+            int c = Integer.parseInt(jTextField3.getText());
+            int d = Integer.parseInt(jTextField4.getText());
+            int e = Integer.parseInt(jTextField5.getText());
+            
+            //se llama al metodo revisar enviando la variable anterior y 
+            //el contador de la figura correspondiente
+            boolean reva = Revisar(a,rombos);
+            boolean revb = Revisar(b,circulos);
+            boolean revc = Revisar(c,triangulos);
+            boolean revd = Revisar(d,romboides);
+            boolean reve = Revisar(e,cuadros);
+            
+            //verifica que todas las variables boolean sean true
             if(reva && revb && revc && revd && reve){
+                //pinta el boton de verde y suena el audio de victoria
                 jButton1.setBackground(Color.green);
                 pl.victoria();
+                
+                //se desactivan los espacios de texto
                 this.jTextField1.setEnabled(false);
                 this.jTextField2.setEnabled(false);
                 this.jTextField3.setEnabled(false);
@@ -390,12 +427,16 @@ public class Atencion_Sostenida2 extends javax.swing.JFrame {
                 this.jButton1.setEnabled(false);
             }
             else{
+                //suena el audio de error
                 pl.error();
+                //aumenta el numero de intentos
                 intent++;
+                //se escribe en el archivo el nombre y numero de intentos
                 this.jLabel23.setText("Intentos: "+intent);
             }
         }
         else{
+            //el boton se pinta de rojo y suena el audio de error
             jButton1.setBackground(Color.red);
             pl.error();
         }
