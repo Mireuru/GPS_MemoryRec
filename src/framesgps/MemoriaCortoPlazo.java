@@ -7,30 +7,32 @@ package framesgps;
 
 import java.awt.Color;
 import java.util.Random;
-import javax.swing.ImageIcon;
 
 /**
  *
  * @author ERIK
  */
 public class MemoriaCortoPlazo extends javax.swing.JFrame {
-    Random rand = new Random();
+    
     /**
      * Creates new form MemoriaCortoPlazo
      */
     Menu men;
+    //declaracion de objetos
     Interact inter = new Interact();
     Imagen im = new Imagen();
+    Random rand = new Random();Color color = new Color(102, 189, 230);
+    
+    
     public MemoriaCortoPlazo() {
-        initComponents();
+        initComponents();;
         this.setLocationRelativeTo(null);
+        //un valor random entre 1 y 6 se asigna a "a"
         int a = rand.nextInt((3 - 1) + 1) + 1;
-        String imagen1 = "memoria1.png";
-        String imagen2 = "memoria2.png";
-        String imagen3 = "memoria3.png";
-        String imagen4 = "memoria4.png";
-        String imagen5 = "memoria5.png";
-        String imagen6 = "memoria6.png";
+        
+        /* switch verifica el valor de "a"
+            dependiendo del valor de "a" es la imagen que será desplegada
+            en la label, tambien se define su tamaño*/
         switch (a) {
             case 1: a=1;
                 im.setImageLabel(791, 460, "memoria1.png", jLabel1);
@@ -51,12 +53,16 @@ public class MemoriaCortoPlazo extends javax.swing.JFrame {
                 im.setImageLabel(791, 460, "memoria6.png", jLabel1);
                 break;
         }
-        Imagen im = new Imagen();
+        
+        //nombre del frame
         this.setTitle("Memoria Corto Plazo");
         im.setIconGeneral(this);
+        
+        //mostrar imagen en el boton menú
         String menu = "BotonMenu.png";
         im.setImageBoton(215,64,menu, botonMenu);
-        Color color = new Color(102, 189, 230);
+        
+        //cambio de color del frame
         getContentPane().setBackground(color);
     }
 
@@ -151,11 +157,13 @@ public class MemoriaCortoPlazo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //envía al frame 2
         MemoriaCortoPlazo2.main(new String[]{});
 			this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
+        //regresa al menú
         men = new Menu();
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
