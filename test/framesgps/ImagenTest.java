@@ -159,7 +159,7 @@ public class ImagenTest {
         String n = "5";
         JButton c = new JButton();
         Imagen instance = new Imagen();
-        instance.setNumberBoton(ancho, alto, n, c);
+        instance.setNumberBoton(n, c);
         // TODO review the generated test code and remove the default call to fail.
     }
 
@@ -179,7 +179,7 @@ public class ImagenTest {
         int ancho = 200;
         int alto = 100;
         Imagen instance = new Imagen();
-        instance.setTextBoton(num, nom, bot, ancho, alto);
+        instance.setTextBoton(num, nom, bot);
         
     }
 

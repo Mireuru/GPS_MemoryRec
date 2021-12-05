@@ -189,19 +189,6 @@ public class InteractTest {
     }
 
     /**
-     * Test of ActividadR method, of class Interact.
-     */
-    @Test
-    public void testActividadR() {
-        System.out.println("ActividadR");
-        int a = 0;
-        Interact instance = new Interact();
-        instance.ActividadR(a);
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-
-    /**
      * Test of getSuma method, of class Interact.
      */
     @Test
