@@ -18,76 +18,104 @@ public class AtencionAlternada extends javax.swing.JFrame {
     /**
      * Creates new form AtencionAlternada
      */
-    
+    //Se declaran los objetos de las clases a utilizar
     Rand ra = new Rand();
     Menu men;
     Interact inter = new Interact();
-    ArrayList <String> respuestas = new ArrayList<String>();
     Player pl = new Player();
+    //Se establece una bandera a usar
     boolean flag = true;
+    //Se crea un ArrayList para su uso
+    ArrayList <String> respuestas = new ArrayList<String>();
     
     public AtencionAlternada() {
         initComponents();
+        //Se especifica el uso de la clase Imagen
         Imagen im = new Imagen();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Atencion Alternada");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar frame
+        this.setTitle("Atencion Alternada");    //Titulo del frame
+        im.setIconGeneral(this);    //Icono del frame
         
-        
-        
+        //Se establecen los iconos de los botones
         im.setImageBoton(100, 50, "BotonMenu.png", jButton1);
         im.setImageBoton(100, 50, "revisar.png", jButton2);
         
+        //Se crea el color a usar en el fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color creado
         
+        //El String cad se crea y se le asigna una cadena aleatoria
         String cad = ra.getCadenaRandom();
-        this.jLabel1.setText(cad);
-        String [] cad1 = ra.getCadenaRecortada(cad);
-        this.jLabel2.setText(cad1[0]);
-        respuestas.add(cad1[1]);
+        this.jLabel1.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad1 = ra.getCadenaRecortada(cad);    //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel2.setText(cad1[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad1[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
-        cad = ra.getCadenaRandom();
-        this.jLabel5.setText(cad);
-        String [] cad2 = ra.getCadenaRecortada(cad);
-        this.jLabel6.setText(cad2[0]);
-        respuestas.add(cad2[1]);
+        //Se le asigna a cad una cadena aleatoria distinta
+        cad = ra.getCadenaRandom(); 
+        this.jLabel5.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad2 = ra.getCadenaRecortada(cad);    //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel6.setText(cad2[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad2[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
+        //Se le asigna a cad una cadena aleatoria distinta
         cad = ra.getCadenaRandom();
-        this.jLabel7.setText(cad);
-        String [] cad3 = ra.getCadenaRecortada(cad);
-        this.jLabel8.setText(cad3[0]);
-        respuestas.add(cad3[1]);
+        this.jLabel7.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad3 = ra.getCadenaRecortada(cad);    //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel8.setText(cad3[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad3[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
+        //Se le asigna a cad una cadena aleatoria distinta
         cad = ra.getCadenaRandom();
-        this.jLabel9.setText(cad);
-        String [] cad4 = ra.getCadenaRecortada(cad);
-        this.jLabel10.setText(cad4[0]);
-        respuestas.add(cad4[1]);
+        this.jLabel9.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad4 = ra.getCadenaRecortada(cad);    //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel10.setText(cad4[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad4[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
+        //Se le asigna a cad una cadena aleatoria distinta
         cad = ra.getCadenaRandom();
-        this.jLabel11.setText(cad);
-        String [] cad5 = ra.getCadenaRecortada(cad);
-        this.jLabel12.setText(cad5[0]);
-        respuestas.add(cad5[1]);
+        this.jLabel11.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad5 = ra.getCadenaRecortada(cad);    //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel12.setText(cad5[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad5[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
+        //Se le asigna a cad una cadena aleatoria distinta
         cad = ra.getCadenaRandom();
-        this.jLabel13.setText(cad);
-        String [] cad6 = ra.getCadenaRecortada(cad);
-        this.jLabel14.setText(cad6[0]);
-        respuestas.add(cad6[1]);
+        this.jLabel13.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad6 = ra.getCadenaRecortada(cad);  //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel14.setText(cad6[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad6[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
+        //Se le asigna a cad una cadena aleatoria distinta
         cad = ra.getCadenaRandom();
-        this.jLabel15.setText(cad);
-        String [] cad7 = ra.getCadenaRecortada(cad);
-        this.jLabel16.setText(cad7[0]);
-        respuestas.add(cad7[1]);
+        this.jLabel15.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad7 = ra.getCadenaRecortada(cad);  //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel16.setText(cad7[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad7[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
         
+        //Se le asigna a cad una cadena aleatoria distinta
         cad = ra.getCadenaRandom();
-        this.jLabel17.setText(cad);
-        String [] cad8 = ra.getCadenaRecortada(cad);
-        this.jLabel18.setText(cad8[0]);
-        respuestas.add(cad8[1]);
+        this.jLabel17.setText(cad);  //Se establece esta cadena en la etiqueta
+        String [] cad8 = ra.getCadenaRecortada(cad);  //Se obtiene una cadena recortada
+                                                        //de la anterior y se pone en un array
+        this.jLabel18.setText(cad8[0]);  //Se escribe la cadena recortada en su etiqueta
+        respuestas.add(cad8[1]);        //Se añade la respuesta de la cadena 
+                                        //recortada al Arraylist que las almacena
     }
 
     /**
@@ -252,8 +280,41 @@ public class AtencionAlternada extends javax.swing.JFrame {
         );
 
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField2KeyTyped(evt);
+            }
+        });
+
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField3KeyReleased(evt);
+            }
+        });
+
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
+
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField5KeyReleased(evt);
+            }
+        });
+
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField6KeyReleased(evt);
+            }
+        });
+
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField7KeyReleased(evt);
             }
         });
 
@@ -394,17 +455,19 @@ public class AtencionAlternada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Se inicializa el objeto de Clase Menu
+        inter.back(men, this);  //Se abre men y se cierra el frame local
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        pl.click();
-        solucion(this.jTextField2,0);
+        pl.click(); //Sonido de click
+        //Se revisa la solución del texto en cada uno de los frames indicando su posición en
+        //el arreglo de respuestas, con el cual se comparará
+        solucion(this.jTextField2,0);   
         solucion(this.jTextField3,1);
         solucion(this.jTextField4,2);
         solucion(this.jTextField5,3);
@@ -414,41 +477,74 @@ public class AtencionAlternada extends javax.swing.JFrame {
         solucion(this.jTextField9,7);
         
         if(flag){
-            pl.victoria();
+            pl.victoria();  //En caso de que todas las respuestas sean correctas, se da el
+                            //sonido de victoria
         }
         else{
-            pl.error();
+            pl.error();     //En caso de haber errores se da el sonido de error
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        //Se hacen mayusculas las letras introducidas
+        this.jTextField2.setText(this.jTextField2.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        //Se hacen mayusculas las letras introducidas
+        this.jTextField3.setText(this.jTextField3.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        //Se hacen mayusculas las letras introducidas
+        this.jTextField4.setText(this.jTextField4.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+        //Se hacen mayusculas las letras introducidas
+        this.jTextField5.setText(this.jTextField5.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField5KeyReleased
+
+    private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
+        //Se hacen mayusculas las letras introducidas
+        this.jTextField6.setText(this.jTextField6.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField6KeyReleased
+
+    private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
+        //Se hacen mayusculas las letras introducidas
+        this.jTextField7.setText(this.jTextField7.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField7KeyReleased
+
+    //Método para la revisión de la solución
     public void solucion(JTextField camp,int val){
         ArrayList <Character> re1 = new ArrayList<Character>();
         ArrayList <Character> re2 = new ArrayList<Character>();
-        String temp = camp.getText();
+        String temp = camp.getText();   //Se obtiene el texto del JTextField de entrada
         for(int i = 0; i< temp.length();i++){
-            re1.add(temp.charAt(i));
+            re1.add(temp.charAt(i));    //Se añade cada caracter individual a un ArrayList
         }
         for(int i = 1; i< 8;i+=3){
-            re2.add(respuestas.get(val).charAt(i));
+            re2.add(respuestas.get(val).charAt(i)); //Se añade cada caracter de valor en respuestas a re2
         }
+        //Se recorren ambos arraylists
         for(int i=0;i<re1.size();i++){
             for(int j=0;j<re2.size();j++){
-                if(re1.get(i).equals(re2.get(j))){
-                    re2.remove(j);
-                    break;
+                if(re1.get(i).equals(re2.get(j))){  //Se verifica si re1 y re2 en la posición correspondiente
+                    re2.remove(j);                  //Son iguales, de ser así se remueve de re2
+                    break;                          //Se sale del for
                 }
             }
         }
-        if(re2.isEmpty()){
-            camp.setText("CORRECTO");
-            camp.setBackground(Color.green);
-            flag = true;
+        if(re2.isEmpty()){      //Si el ArrayList re2 quedó vacío se da por correcto
+            camp.setText("CORRECTO");       //Se escribe en el campo de texto
+            camp.setBackground(Color.green);    //Se cambia el color de fondo
+            flag = true;    //Se cambia la bandera a true
         }
-        else{
-            camp.setText("INCORRECTO");
-            camp.setBackground(Color.ORANGE);
-            flag = false;
+        else{   //En caso contrario
+            camp.setText("INCORRECTO"); //Se escribe en el campo de texto
+            camp.setBackground(Color.ORANGE);   //Se cambia el color de fondo
+            flag = false;   //Se cambia la bandera a false
         }
     }
     /**
