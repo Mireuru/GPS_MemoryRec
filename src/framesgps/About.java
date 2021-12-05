@@ -20,7 +20,6 @@ public class About extends javax.swing.JFrame {
 
     /**
      * Creates new form About
-     * jaja dic
      */
     Imagen im = new Imagen();
     Interact inter = new Interact();
