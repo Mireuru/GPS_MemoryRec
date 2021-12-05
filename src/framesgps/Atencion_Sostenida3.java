@@ -6,7 +6,6 @@
 package framesgps;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
@@ -17,27 +16,33 @@ import javax.swing.JButton;
 public class Atencion_Sostenida3 extends javax.swing.JFrame {
 
     Menu men;
+    //creacion de objetos
     Interact inter = new Interact();
-    int orden =1;
+    Rand ra = new Rand();
+    Imagen im = new Imagen();
+    Color color = new Color(102, 189, 230);
     Player pl = new Player();
+    
+    //variables, orden se encarga de llevar el conteo de los botones presionados
+    //errores cuenta los errores
+    int orden =1;
     int errores = 0;
     
     public Atencion_Sostenida3() {
         initComponents();
-        Rand ra = new Rand();
-        Imagen im = new Imagen();
+        
+        //informacion en el frame
         this.setLocationRelativeTo(null);
         this.setTitle("Atencion Sostenida3");
         im.setIconGeneral(this);
-        //Container buttonLayout;
         
-    this.setSize(800, 600);
+        //tamaño del frame
+        this.setSize(800, 600);
+        //una malla para colocar los botones
+        panelActividad.setLayout(new GridLayout(3, 5));
     
-    //buttonLayout = getContentPane();
-   
-   panelActividad.setLayout(new GridLayout(3, 5));
-    
-         String [] noms = {
+        //arrgelo de string con numeros del 1 al 15
+        String [] noms = {
                           "1",
                           "2",
                           "3",
@@ -53,46 +58,57 @@ public class Atencion_Sostenida3 extends javax.swing.JFrame {
                           "13",
                           "14",
                           "15"};
-         
-         
         
-        
+        //arreglo con todos los botones de la actividad
         JButton [] botones = {boton1,boton2,boton3,boton4,
                               boton5,boton6,boton7,boton8,
                               boton9,boton10, boton11,boton12,
                               boton13, boton14,boton15};
         
-        
-        
-       
-        
+        //arreglo int que recibe posiciones aleatorias
         int [] posiciones = ra.getNumeros(15);
+        
+        //llamada al metodo para escribir texto en botones
         im.setTextBoton(posiciones, noms, botones);
        
+        //mostrar la imagen menú en el boton correspondiente
         String menu = "BotonMenu.png";
         im.setImageBoton(212,91,menu, botonMenu);
-        Color color = new Color(102, 189, 230);
+        
+        //cambio de color del frame
         getContentPane().setBackground(color);
                 
     }
     
     private void Revisar(int a, JButton butt){
+        //audio click
         pl.click();
+        //compara el valor del boton con el contador orden
         if (a != orden) {
+            //pinta el boton rojo y disminuye el contador orden
             butt.setBackground(Color.red);
             orden--;
+            
+            //audio error y aumento del contador de errores
             pl.error();
             errores++;
+            
+            //mostrar el numero de errores 
             this.jLabel2.setText("Errores: "+errores);
         }
         else{
+            //pinta el boton verde y amenta el contador orden
             butt.setBackground(Color.green);
             pl.acierto();
+            //desactiva el boton
             butt.setEnabled(false);
+            //una vez que orden llega a 15 
             if(orden == 15){
+                //audio victoria
                 pl.victoria();
             }
         }
+        //aumento de contador orden
         orden++;
     }
 
@@ -647,11 +663,17 @@ public class Atencion_Sostenida3 extends javax.swing.JFrame {
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
         pl.click();
+        //escribir el nombre y errores en el archivo
         inter.setRanking("Orden", errores);
+        
+        //regresar al menú
         men = new Menu();
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
-
+    
+    /*Los siguientes botones solo llaman a la funcion revisar
+      mandando el valor del texto del boton presionado y el propio boton
+    */
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
         Revisar(Integer.parseInt(boton1.getText()), boton1);
     }//GEN-LAST:event_boton1ActionPerformed
