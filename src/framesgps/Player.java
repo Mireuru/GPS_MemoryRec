@@ -7,7 +7,6 @@ package framesgps;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
