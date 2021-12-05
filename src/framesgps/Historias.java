@@ -23,24 +23,29 @@ public class Historias extends javax.swing.JFrame {
     /**
      * Creates new form Historias
      */
+    //Se crean los objetos de las clases a usar
     Menu men;
     Interact inter = new Interact();
     Player pl = new Player();
+    
     public Historias() {
         initComponents();
+        //Se crean objetos de las clases solo usadas aquí
         Rand ra = new Rand();
         Imagen im = new Imagen();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Historias de vida");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Historias de vida"); //Titulo
+        im.setIconGeneral(this);        //Icono
         
-        
-        
+        //Se establece el icono del boton menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton1);
         
+        //Se crea el color del fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color del fondo
         
+        //Se crea un array con posibles preguntas
         String [] preguntas = {"¿Dónde naciste?",
                                "¿Cómo era el pueblo/barrio/ciudad en tu época?",
                                "¿Qué amigos recuerdas de la infancia?",
@@ -50,11 +55,15 @@ public class Historias extends javax.swing.JFrame {
                                "¿Cómo fue tu boda?",
                                "¿Cómo fue la declaración a/de tu pareja?"};
         
+        //Se crea un array con las etiquetas disponibles
         JLabel [] labs = {jLabel1,jLabel2,jLabel3};
         
+        //Se obtiene un arreglo aleatorio de 1 a 8, el numero de preguntas
         int [] arr = ra.getNumeros(8);
+        //Se obtienen 3 posiciones faltantes, que en este caso serán los elegidos
         int [] preg = ra.getNumerosFaltantes(arr, 3);
         
+        //Se establece el texto de las labels con las preguntas en las posiciones en preg-1
         for (int i = 0; i < preg.length; i++) {
             labs[i].setText(preguntas[preg[i]-1]);
         }
@@ -234,14 +243,17 @@ public class Historias extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FileWriter fw = null;
-        pl.click();
+        FileWriter fw = null;   //Se crea un objeto FileWriter
+        pl.click();     //Sonido de click
         try {
-            String ruta = "/logs/historias.txt";
+            String ruta = "/logs/historias.txt";    //Ruta del archivo de historias de vida
             try {
+                //Se obtiene la ruta del programa
                 File cla = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+                //Se crea un string con el contenido a agregar
                 String contenido = "Historias de Vida \n"+this.jLabel1.getText()+"\n"+this.jTextArea1.getText()+"\n\n"
                     +this.jLabel2.getText()+"\n"+this.jTextArea2.getText()+"\n\n"+this.jLabel3.getText()+"\n"+this.jTextArea3.getText()+"\n\n";
+                //Se crea un archivo con la ruta completa
                 File file = new File(cla.getParentFile().getPath()+ruta);
                 // Si el archivo no existe es creado
                 if (!file.exists()) {
@@ -249,7 +261,7 @@ public class Historias extends javax.swing.JFrame {
                 }
                 fw = new FileWriter(file,true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(contenido);
+                bw.write(contenido);    //Se escribe el contenido en el archivo
                 bw.close();
             } catch (URISyntaxException ex) {
                 Logger.getLogger(Historias.class.getName()).log(Level.SEVERE, null, ex);
@@ -265,8 +277,8 @@ public class Historias extends javax.swing.JFrame {
                 Logger.getLogger(Historias.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        men = new Menu();
-        inter.back(men,this);
+        men = new Menu();   //Se inicializa menu
+        inter.back(men,this);   //Se abre menu y se cierra el frame actual
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
