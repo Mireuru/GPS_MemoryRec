@@ -15,7 +15,7 @@ import javax.swing.JButton;
  * @author ERIK
  */
 public class AtencionAlternada2 extends javax.swing.JFrame {
-    //variables para uso mas adelante
+    //variables para uso mas adelante 
     int b=0,d=0;
     char a, e;
     
