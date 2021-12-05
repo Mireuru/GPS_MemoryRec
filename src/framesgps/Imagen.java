@@ -67,11 +67,6 @@ public class Imagen {
     }
     
     public void setNumberBoton(int ancho,int alto, String n,JButton c){
-        String nom = n;
-        //ImageIcon img = new ImageIcon(nom);
-       // Image image = img.getImage();
-        //Image res = image.getScaledInstance(ancho, alto,  java.awt.Image.SCALE_SMOOTH);
-        //img = new ImageIcon(res);
         c.setText(n);
     }
     
