@@ -25,6 +25,7 @@ public class CalculosMatematicos extends javax.swing.JFrame {
     Player pl = new Player();
     Random rand = new Random();
     Imagen im = new Imagen();
+    Color color = new Color(102, 189, 230);
     
     //variable de intentos
     int intent = 0;
@@ -43,6 +44,7 @@ public class CalculosMatematicos extends javax.swing.JFrame {
         this.setTitle("Calculos Matematicos");
         im.setIconGeneral(this);
        
+        //cada label operando muestra un valor random entre 1 y 10
         operando1.setText((rand.nextInt((10 - 1) + 1) + 1)+"");
         operando2.setText((rand.nextInt((10 - 1) + 1) + 1)+"");
         operando3.setText((rand.nextInt((10 - 1) + 1) + 1)+"");
@@ -54,10 +56,11 @@ public class CalculosMatematicos extends javax.swing.JFrame {
         operando9.setText((rand.nextInt((10 - 1) + 1) + 1)+"");
         operando10.setText((rand.nextInt((10 - 1) + 1) + 1)+"");
         
-        
+        //mostrar la imegen en el boton correspondiente
         String menu = "BotonMenu.png";
         im.setImageBoton(201,61,menu, botonMenu);
-        Color color = new Color(102, 189, 230);
+        
+        //cambio de color del frame
         getContentPane().setBackground(color);
     }
     /**
@@ -419,64 +422,97 @@ public class CalculosMatematicos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
+        //reproduccion del audio click
         pl.click();
+        //escribir el nombre y numero de intentos en el archivo de records
         inter.setRanking("Calculos", intent);
+        //regresar al menú
         men = new Menu();
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
 
     private void BotRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotRevisarActionPerformed
         pl.click();
+        //verifica que ninguno de los campos de texto sean nulos
         if( !jTextField1.getText().equals("") && !jTextField2.getText().equals("") &&
             !jTextField3.getText().equals("") && !jTextField4.getText().equals("") && 
             !jTextField5.getText().equals("")){
             
+            //obtiene los valores los operandos 1 y 2, entonces los suma
             if (Integer.parseInt(operando1.getText()) + Integer.parseInt(operando2.getText()) == Integer.parseInt(jTextField1.getText()) ) {
+                //en caso de ser cierto el campo se pinta de verde y la bandera 
+                //pasa a true
                 jTextField1.setBackground(Color.green);
                 flag1 = true;
             }
             else{
+                //en caso de ser cierto el campo se pinta de rojo y la bandera 
+                //se mantiene en false
                 jTextField1.setBackground(Color.red);
                 flag1 = false;
             }
+            //obtiene los valores los operandos 3 y 4, entonces los suma
             if (Integer.parseInt(operando3.getText())- Integer.parseInt(operando4.getText()) == Integer.parseInt(jTextField2.getText()) ) {
+                //en caso de ser cierto el campo se pinta de verde y la bandera 
+                //pasa a true
                 jTextField2.setBackground(Color.green);
                 flag2 = true;
             }
             else{
+                //en caso de ser cierto el campo se pinta de rojo y la bandera 
+                //se mantiene en false
                  jTextField2.setBackground(Color.red);
                  flag2 = false;
             }
+            //obtiene los valores los operandos 5 y 6, entonces los suma
             if (Integer.parseInt(operando5.getText()) + Integer.parseInt(operando6.getText()) == Integer.parseInt(jTextField3.getText()) ) {
+                //en caso de ser cierto el campo se pinta de verde y la bandera 
+                //pasa a true
                 jTextField3.setBackground(Color.green);
                 flag3 = true;
             }
             else{
+                //en caso de ser cierto el campo se pinta de rojo y la bandera 
+                //se mantiene en false
                  jTextField3.setBackground(Color.red);
                  flag3 = false;
             }
+            //obtiene los valores los operandos 7 y 8, entonces los suma
             if (Integer.parseInt(operando7.getText()) * Integer.parseInt(operando8.getText()) == Integer.parseInt(jTextField4.getText()) ) {
+                //en caso de ser cierto el campo se pinta de verde y la bandera 
+                //pasa a true
                 jTextField4.setBackground(Color.green);
                 flag4 = true;
             }
             else{
+                //en caso de ser cierto el campo se pinta de rojo y la bandera 
+                //se mantiene en false
                  jTextField4.setBackground(Color.red);
                 flag4 = false;
             }
+            //obtiene los valores los operandos 9 y 10, entonces los suma
             if (Integer.parseInt(operando9.getText()) * Integer.parseInt(operando10.getText()) == Integer.parseInt(jTextField5.getText()) ) {
+                //en caso de ser cierto el campo se pinta de verde y la bandera 
+                //pasa a true
                 jTextField5.setBackground(Color.green);
                 flag5 = true;
             }
             else{
+                //en caso de ser cierto el campo se pinta de rojo y la bandera 
+                //se mantiene en false
                  jTextField5.setBackground(Color.red);
                  flag5 = false;
             }
         }
         else{
+            //sonido de error
             pl.error();
         }
+        //si todas las banderas son true 
         if(flag1 && flag2 && flag3 && flag4 && flag5){
+            //audio de victoria
             pl.victoria();
+            //se desactivan todos los campos el boton de revisar
             this.jTextField1.setEnabled(false);
             this.jTextField2.setEnabled(false);
             this.jTextField3.setEnabled(false);
@@ -485,7 +521,10 @@ public class CalculosMatematicos extends javax.swing.JFrame {
             this.BotRevisar.setEnabled(false);;
         }
         else{
+            //caso de que al menos una sea false
+            //audio de error
             pl.error();
+            //aumento de contador de intentos y se muestran
             intent++;
             this.jLabel1.setText("Intentos: "+intent);
         }
