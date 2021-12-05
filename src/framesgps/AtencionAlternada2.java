@@ -15,32 +15,43 @@ import javax.swing.JButton;
  * @author ERIK
  */
 public class AtencionAlternada2 extends javax.swing.JFrame {
+    //variables para uso mas adelante
     int b=0,d=0;
     char a, e;
     
     /**
      * Creates new form AtencionAlternada2
      */
+    //creacion del objeto de la clase interact
     Interact inter = new Interact();
+    //objeto de menu
     Menu men;
+    //reproductor de sonido
     Player pl = new Player();
+    //contador de errores
     int errores = 0;
+    //arreglo de botones
     JButton [] botn;
     
     public AtencionAlternada2() {
         initComponents();
+        //Declaracion de objeto imagen
         Imagen im = new Imagen();
+        //Titulo de la ventana
         this.setLocationRelativeTo(null);
         this.setTitle("Atencion Alternada2");
         im.setIconGeneral(this);
+        //Declaracion de objeto random
         Random rnd = new Random();
         char c;
+        //arreglo de caracteres de 16 espacios
         char[] valor= new char[17];
+        //generar un caracter random y guardarlo en el arreglo valor 
         for (int i = 0; i < 17; i++) {
            c  = (char) ('a' + rnd.nextInt(26));
            valor[i]=c;
         }
-        
+        //arreglo de 16 botones
         JButton [] bots = { jButton1,
                             jButton2,
                             jButton3,
@@ -60,14 +71,15 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
         };
         
         botn = bots;
-        
+        //el primer objeto del arreglo valor se muestra en la lable superior
         jLabel1.setText(valor[0]+"");
-        
+        //Los valores de valor se imprimen en los botones
         for (int i = 0; i < bots.length; i++) {
             bots[i].setText(valor[i+1]+"");
         }
-        
+        //e recibe el valor de la lable
         e=valor[0];
+        //ciclo para contar cuantos elementos son iguales al perimero
         for (int i = 1; i < 17; i++) {
             if (valor[i]==valor[0]) {
                 b++;
@@ -75,9 +87,10 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
         }
         
         
-        
+        //Creacion del boton menu con imagen
         String menu = "BotonMenu.png";
         im.setImageBoton(190,80,menu, botonMenu);
+        //Definicion del color del frame
         Color color = new Color(102, 189, 230);
         getContentPane().setBackground(color);
     }
@@ -366,16 +379,24 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+       //variable a recibe el texto del boton
         a= jButton13.getText().charAt(0);
+        //compara si el texto del boton y la etiqueta son iguales
         if (e==a) {
+            //pinta el boton verde
            jButton13.setBackground(Color.green);
+           //aumento del contador d
            d++;
            revisar();
         }
         else{
+            //sonido de error
             pl.error();
+            //aumento del contador de errores
             errores++;
+            
             this.jLabel2.setText("Errores: "+errores);
+            //pinta el boton color rojo
             jButton13.setBackground(Color.red);
         }
     }//GEN-LAST:event_jButton13ActionPerformed
@@ -396,13 +417,18 @@ public class AtencionAlternada2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        //verifica que el numero de letras repetidas sea 0
         if (b==0) {
+            //pinta el boton verde
             jButton17.setBackground(Color.green);
             revisar();
         }
         else{
+            //pinta el boton rojo
             jButton17.setBackground(Color.red);
+            //sonido de error
             pl.error();
+            //aumento del contador de errores
             errores++;
             this.jLabel2.setText("Errores: "+errores);
         }
