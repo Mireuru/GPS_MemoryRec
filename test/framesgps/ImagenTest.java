@@ -48,7 +48,7 @@ public class ImagenTest {
         int ancho = 200;
         int alto = 100;
         String n = "arbol.png";
-        JButton c = null;
+        JButton c = new JButton();
         Imagen instance = new Imagen();
         instance.setImageBoton(ancho, alto, n, c);
         // TODO review the generated test code and remove the default call to fail.
@@ -60,14 +60,13 @@ public class ImagenTest {
     @Test
     public void testSetImageBotonDisabled() {
         System.out.println("setImageBotonDisabled");
-        int ancho = 0;
-        int alto = 0;
-        String n = "";
-        JButton c = null;
+        int ancho = 200;
+        int alto = 100;
+        String n = "arbol.png";
+        JButton c = new JButton();
         Imagen instance = new Imagen();
         instance.setImageBotonDisabled(ancho, alto, n, c);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,14 +75,13 @@ public class ImagenTest {
     @Test
     public void testSetImageLabel() {
         System.out.println("setImageLabel");
-        int ancho = 0;
-        int alto = 0;
-        String n = "";
-        JLabel c = null;
+        int ancho = 200;
+        int alto = 100;
+        String n = "arbol.png";
+        JLabel c = new JLabel();
         Imagen instance = new Imagen();
         instance.setImageLabel(ancho, alto, n, c);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -92,15 +90,19 @@ public class ImagenTest {
     @Test
     public void testSetIconBoton() {
         System.out.println("setIconBoton");
-        int[] num = null;
-        String[] nom = null;
-        JButton[] bot = null;
-        int ancho = 0;
-        int alto = 0;
+        int[] num = {1,2,3,4,5};
+        String[] nom = {"arbol.png","calcetines.jpg","cebolla.jpg","chile.jpg","cigarro.jpg"};
+        JButton but1 = new JButton();
+        JButton but2 = new JButton();
+        JButton but3 = new JButton();
+        JButton but4 = new JButton();
+        JButton but5 = new JButton();
+        JButton[] bot = {but1,but2,but3,but4,but5};
+        int ancho = 200;
+        int alto = 100;
         Imagen instance = new Imagen();
         instance.setIconBoton(num, nom, bot, ancho, alto);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -109,15 +111,19 @@ public class ImagenTest {
     @Test
     public void testSetIconBotonDisabled() {
         System.out.println("setIconBotonDisabled");
-        int[] num = null;
-        String[] nom = null;
-        JButton[] bot = null;
-        int ancho = 0;
-        int alto = 0;
+        int[] num =  {1,2,3,4,5};
+        String[] nom = {"arbol.png","calcetines.jpg","cebolla.jpg","chile.jpg","cigarro.jpg"};
+        JButton but1 = new JButton();
+        JButton but2 = new JButton();
+        JButton but3 = new JButton();
+        JButton but4 = new JButton();
+        JButton but5 = new JButton();
+        JButton[] bot = {but1,but2,but3,but4,but5};
+        int ancho = 200;
+        int alto = 100;
         Imagen instance = new Imagen();
         instance.setIconBotonDisabled(num, nom, bot, ancho, alto);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -126,15 +132,20 @@ public class ImagenTest {
     @Test
     public void testSetIconLabel() {
         System.out.println("setIconLabel");
-        int[] num = null;
-        String[] nom = null;
-        JLabel[] lab = null;
-        int ancho = 0;
-        int alto = 0;
+        int[] num =  {1,2,3,4,5};
+        String[] nom = {"arbol.png","calcetines.jpg","cebolla.jpg","chile.jpg","cigarro.jpg"};
+        JLabel lab1 = new JLabel();
+        JLabel lab2 = new JLabel();
+        JLabel lab3 = new JLabel();
+        JLabel lab4 = new JLabel();
+        JLabel lab5 = new JLabel();
+        
+        JLabel[] lab = {lab1,lab2,lab3,lab4,lab5};
+        int ancho = 200;
+        int alto = 100;
         Imagen instance = new Imagen();
         instance.setIconLabel(num, nom, lab, ancho, alto);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -143,14 +154,13 @@ public class ImagenTest {
     @Test
     public void testSetNumberBoton() {
         System.out.println("setNumberBoton");
-        int ancho = 0;
-        int alto = 0;
-        String n = "";
-        JButton c = null;
+        int ancho = 200;
+        int alto = 100;
+        String n = "5";
+        JButton c = new JButton();
         Imagen instance = new Imagen();
         instance.setNumberBoton(ancho, alto, n, c);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -159,15 +169,18 @@ public class ImagenTest {
     @Test
     public void testSetTextBoton() {
         System.out.println("setTextBoton");
-        int[] num = null;
-        String[] nom = null;
-        JButton[] bot = null;
-        int ancho = 0;
-        int alto = 0;
+        int[] num = {2,3,1};
+        String[] nom = {"1","2","3"};
+        JButton bot1 = new JButton();
+        JButton bot2 = new JButton();
+        JButton bot3 = new JButton();
+        
+        JButton[] bot = {bot1,bot2,bot3};
+        int ancho = 200;
+        int alto = 100;
         Imagen instance = new Imagen();
         instance.setTextBoton(num, nom, bot, ancho, alto);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -176,11 +189,10 @@ public class ImagenTest {
     @Test
     public void testSetIconGeneral() {
         System.out.println("setIconGeneral");
-        JFrame fr = null;
+        JFrame fr = new JFrame();
         Imagen instance = new Imagen();
         instance.setIconGeneral(fr);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
