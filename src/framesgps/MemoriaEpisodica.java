@@ -21,22 +21,26 @@ public class MemoriaEpisodica extends javax.swing.JFrame {
     /**
      * Creates new form MemoriaEpisodica
      */
+    //Se crean los objetos de las clases a usar
     Menu men;
     Interact inter = new Interact();
     Player pl = new Player();
     
     public MemoriaEpisodica() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        
+        //Se establece el uso de la clase Imagen
         Imagen im = new Imagen();
-        this.setTitle("Memoria Episodica");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrado
+        this.setTitle("Memoria Episodica"); //Titulo
+        im.setIconGeneral(this);    //Icono
         
+        //Se establece el icono del botón menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton15);
         
+        //Se crea el color para el fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color del fondo
         
     }
 
@@ -240,12 +244,14 @@ public class MemoriaEpisodica extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        FileWriter fw = null;
-        pl.click();
+        FileWriter fw = null;   //Se crea un objeto de la clase FileWriter
+        pl.click(); //Sonido de click
         try {
-            String ruta = "/logs/episodica.txt";
+            String ruta = "/logs/episodica.txt";    //ruta del archivo de memoria episodica
             try {
+                //Se obtiene la ruta del programa
                 File cla = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+                //Se crea un string con el contenido a escribir
                 String contenido = "Memoria Episodica \n\n"+
                     this.jLabel1.getText()+"\n"+this.jTextField1.getText()+"\n\n"+
                     this.jLabel2.getText()+"\n"+this.jTextField2.getText()+"\n\n"+
@@ -253,6 +259,7 @@ public class MemoriaEpisodica extends javax.swing.JFrame {
                     this.jLabel4.getText()+"\n"+this.jTextField4.getText()+"\n\n"+
                     this.jLabel5.getText()+"\n"+this.jTextField5.getText()+"\n\n"+
                     this.jLabel6.getText()+"\n"+this.jTextField6.getText()+"\n\n";
+                //Se crea un archivo con la ruta completa
                 File file = new File(cla.getParentFile().getPath()+ruta);
                 // Si el archivo no existe es creado
                 if (!file.exists()) {
@@ -260,7 +267,7 @@ public class MemoriaEpisodica extends javax.swing.JFrame {
                 }
                 fw = new FileWriter(file,true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(contenido);
+                bw.write(contenido);    //Se escribe el contenido del String
                 bw.close();
             } catch (URISyntaxException ex) {
                 Logger.getLogger(MemoriaEpisodica.class.getName()).log(Level.SEVERE, null, ex);
@@ -276,8 +283,8 @@ public class MemoriaEpisodica extends javax.swing.JFrame {
                 Logger.getLogger(Historias.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        men = new Menu();
-        inter.back(men, this);
+        men = new Menu();   //Se inicializa menu
+        inter.back(men, this);  //Se abre menu y se cierra el frame actual
     }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
