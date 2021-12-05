@@ -47,7 +47,7 @@ public class Atencion_Sostenida extends javax.swing.JFrame {
                               boton13, boton14,boton15};
         
         int [] posiciones = ra.getNumeros(15);
-        im.setTextBoton(posiciones, valor, botones, 50, 75);
+        im.setTextBoton(posiciones, valor, botones);
         
       
         String menu = "BotonMenu.png";

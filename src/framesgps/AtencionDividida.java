@@ -83,13 +83,13 @@ public class AtencionDividida extends javax.swing.JFrame {
                               boton9};
         
         int [] posicionesL = ra.getNumeros(9);
-        im.setTextBoton(posicionesL, valors, botonesL, 50, 75);
+        im.setTextBoton(posicionesL, valors, botonesL);
         
         JButton [] botonesN = {boton10,boton11,boton12,boton13,
                               boton14,boton15,boton16,boton17,
                               boton18};
         int [] posicionesN = ra.getNumeros(9);
-        im.setTextBoton(posicionesN, valorints, botonesN, 50, 75);
+        im.setTextBoton(posicionesN, valorints, botonesN);
         //---------------------------------------------------------------------------
          
      
