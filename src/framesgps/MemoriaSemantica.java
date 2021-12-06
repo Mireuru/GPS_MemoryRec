@@ -17,44 +17,50 @@ public class MemoriaSemantica extends javax.swing.JFrame {
     /**
      * Creates new form MemoriaSemantica
      */
-    
+    //Se crean los objetos de las clases a usar
     Rand ra = new Rand();
     Menu men;
     Interact inter = new Interact();
-    
+    Player pl = new Player();
+    Imagen im = new Imagen();
+    //Se crean los objetos a usar
+    JButton [] botn = new JButton[8];
     JButton pres;
     JButton seg;
-    int cont = 0;
-    JButton [] botn = new JButton[8];
     int [] vals;
-    Player pl = new Player();
+    int cont = 0;
     int aciertos = 0;
     int errores = 0;
     
     public MemoriaSemantica() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Memoria Semantica"); //Titulo
+        im.setIconGeneral(this);    //Icono
         
-        Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        //Se crea el color a usar en el fondo
+        Color color = new Color(102, 189, 230); 
+        getContentPane().setBackground(color);  //Se establece el color del fondo
         
-        int[] rand = ra.getNumeros(8);
+        int[] rand = ra.getNumeros(8);  //Se crea un array random de enteros del 1 al 8
         
-        vals = rand;
+        vals = rand;    //Igualado para uso global
         
-        Imagen im = new Imagen();
-        this.setTitle("Memoria Semantica");
-        im.setIconGeneral(this);
-        
+        //Se establece el icono del boton menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton14);
         
-        String [] noms = {"martillo.png","luna.jpg","sol.jpg","perro.jpg","desarmador.jpg","gato.jpg","mesa.jpg","silla.jpg"};
+        //Se crea un arreglo con los nombres de imagen a usar
+        String [] noms = {"martillo.png","luna.jpg","sol.jpg","perro.jpg",
+                          "desarmador.jpg","gato.jpg","mesa.jpg","silla.jpg"};
         
+        //Se crea un arreglo con los botones a usar
         JButton [] bots = {jButton1,jButton2,jButton3,jButton4,
                            jButton5,jButton6,jButton7,jButton8};
         
-        botn = bots;
+        botn = bots;    //Se iguala para uiso global
         
+        //Se establecen lso iconos de cada uno de los botones con base en los nombres y valores
         im.setIconBoton(rand, noms, bots, 200,200);
     }
 
@@ -240,99 +246,101 @@ public class MemoriaSemantica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        inter.setRanking("Mem_Semantica", errores);
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        inter.setRanking("Mem_Semantica", errores); //Se guarda el ranking de la actividad
+        men = new Menu();   //Se inicializa el menu
+        inter.back(men, this);  ///Se abre menu y se cierra el frame actual
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        presBoton(jButton1);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton1);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();  //Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        presBoton(jButton2);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton2);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();//Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        presBoton(jButton3);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton3);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();//Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        presBoton(jButton4);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton4);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();//Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        presBoton(jButton5);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton5);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();  //Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        presBoton(jButton6);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton6);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();  //Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        presBoton(jButton7);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton7);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();  //Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        presBoton(jButton8);
-        if(aciertos==4){
-            pl.victoria();
+        presBoton(jButton8);    //Se verifica el boton presionado
+        if(aciertos==4){    //Si se tiene la cantidad de aciertos maxima
+            pl.victoria();  //Se da el sonido de victoria y se da un mensaje de salida
             JOptionPane.showMessageDialog(rootPane,"BIEN HECHO!!");
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    //Método para la revisión de botones presionados
     public void presBoton(JButton but){
-        pl.click();
+        pl.click(); //Sonido de click
         boolean espareja;
-        if(cont==0){
-            pres = but;
-            pres.setEnabled(false);
-            cont++;
+        if(cont==0){    //Si no hay botones presionados
+            pres = but; //Se establece el primer boton presionado
+            pres.setEnabled(false); //Se deshabiilita
+            cont++; //Aumenta el contador de botones presionados
         }
         else{
-            seg = but;
-            seg.setEnabled(false);
+            seg = but;  //Si ya hay un boton presionado se establece el segundo
+            seg.setEnabled(false);  //Se deshabilita
+            //Se verifica si son correspondientes, obteniendo la posición de los botones y su valor en vals
             espareja = inter.getSem(vals[inter.getPosBoton(botn, pres)],vals[inter.getPosBoton(botn, seg)]);
-            if(espareja){
-                pl.acierto();
-                aciertos++;
+            if(espareja){   //Si son pareja
+                pl.acierto();   //Sonido de acierto
+                aciertos++;     //Aumentan los aciertos
             }
             else{
-                pl.error();
-                errores++;
-                this.jLabel2.setText("Errores: "+errores);
+                pl.error(); //Sonido de error
+                errores++;  //Aumentan los errores
+                this.jLabel2.setText("Errores: "+errores);  //Se muestran los errores
             }
-            inter.accPareja(espareja, pres, seg);
-            cont = 0;
+            inter.accPareja(espareja, pres, seg);   //Se habilitan o deshabilitan los botones
+            cont = 0;   //Se devuelve el contador a 0
         }
     }
     
