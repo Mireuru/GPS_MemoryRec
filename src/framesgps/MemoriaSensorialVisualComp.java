@@ -16,39 +16,41 @@ public class MemoriaSensorialVisualComp extends javax.swing.JFrame {
     /**
      * Creates new form MemoriaSensorialVisual
      */
+    //Se crean los objetos de las clases a usar
     Rand ra = new Rand();
     MemoriaSensorialVisualFalt mem;
     Menu men;
     Interact inter = new Interact();
-    
     Player pl = new Player();
-
+    Imagen im = new Imagen();
+    
     public MemoriaSensorialVisualComp() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Memoria Sensorial Visual");  //Titulo
+        im.setIconGeneral(this);    //Icono
+        //Randoms
         int[] rand = ra.getNumeros(12);
-        
-        Imagen im = new Imagen();
-        this.setTitle("Memoria Sensorial Visual");
-        im.setIconGeneral(this);
-        
+        //Icono menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton14);
-        
+        //Icono flecha
         im.setImageBoton(200, 100, "Flecha.png", jButton13);
-        
+        //Nombres a usar
         String [] noms = {"circulo.jpg","triangulo.jpg","rectangulo.jpg","paralelogramo.jpg","cuadro.jpg",
                           "rombo.jpg","trapecio.jpg","pentagono.jpg","hexagono.jpg","octagono.jpg","estrella.jpg","ovalo.jpg"};
-        
+        //Botones a usar
         JButton [] bots = {jButton1,jButton2,jButton3,jButton4,
                            jButton5,jButton6,jButton7,jButton8,
                            jButton9,jButton10,jButton12,jButton11};
-        
+        //Se establecen las imagenes en los botones
         im.setIconBoton(rand, noms, bots, 150, 150);
-        
+        //Se crea el nuevo frame a usar con los valores requeridos
         mem = new MemoriaSensorialVisualFalt(rand,noms);
         
+        //Se crea el color de fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color de fondo
         
     }
 
@@ -260,14 +262,14 @@ public class MemoriaSensorialVisualComp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        pl.click();
-        inter.back(mem,this);
+        pl.click(); //Sonido de click
+        inter.back(mem,this);   //Se abre el frame creado y se cierra este
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Se inicializa menu
+        inter.back(men, this);  //Se abre menu y se cierra este frame
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
