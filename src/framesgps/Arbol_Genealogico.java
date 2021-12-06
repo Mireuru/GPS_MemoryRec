@@ -17,20 +17,27 @@ public class Arbol_Genealogico extends javax.swing.JFrame {
      * Creates new form Arbol_Genealogico
      */
     
-    Interact inter = new Interact();
+    
     Menu men;
+    //creacion de objetos
     Player pl = new Player();
+    Color color = new Color(102, 189, 230);
+    Interact inter = new Interact();
+    Imagen im = new Imagen();
+    
     public Arbol_Genealogico() {
         initComponents();
-        Imagen im = new Imagen();
+        
+        //infromacion del frame
         this.setLocationRelativeTo(null);
         this.setTitle("Arbol genealogico");
         im.setIconGeneral(this);
         
-        
+        //agregar la imagen menú al boton correspondiente
         String menu = "BotonMenu.png";
-       im.setImageBoton(200,100,menu, botonMenu);
-       Color color = new Color(102, 189, 230);
+        im.setImageBoton(200,100,menu, botonMenu);
+       
+        //cambio de color de frame
         getContentPane().setBackground(color);
     }
 
@@ -237,6 +244,7 @@ public class Arbol_Genealogico extends javax.swing.JFrame {
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
         pl.click();
+        //volver al menú
         men = new Menu();
         inter.back(men, this);
     }//GEN-LAST:event_botonMenuActionPerformed
