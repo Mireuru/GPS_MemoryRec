@@ -18,41 +18,49 @@ public class MemoriaSensorialGustativa extends javax.swing.JFrame {
     /**
      * Creates new form MemoriaSensorialGustativa
      */
-    
+    //Se crean los objetos de las clases a usar
     Rand ra = new Rand();
-    String [] sab = {"Dulce","Amargo","Acido","Salado","Picante"};
-    int cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, cont5 = 0, cont6 = 0;
     Menu men;
     Interact inter = new Interact();
-    JLabel [] labn = new JLabel[8];
-    int [] vals;
     Player pl = new Player();
+    Imagen im = new Imagen();
+    //Se crean objetos a usar
+    String [] sab = {"Dulce","Amargo","Acido","Salado","Picante"};
+    JLabel [] labn = new JLabel[8];
+    int cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, cont5 = 0, cont6 = 0;
+    int [] vals;
     int intent = 0;
     
     public MemoriaSensorialGustativa() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        //Se establecen los valoresdel frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Memoria Sensorial Gustativa");   //Titulo
+        im.setIconGeneral(this);    //Icono
         
-        int[] rand = ra.getNumeros(6);
+        int[] rand = ra.getNumeros(6);  //Arreglo de aleatorios de 1 a 6
         
-        vals = rand;
+        vals = rand;    //Uso global
         
+        //Nombres a usar
         String [] noms = {"naranja.jpg","toronja.jpg","chile.jpg","donas.jpg","pastel.jpg","pina.jpg"};
         
+        //Etiquetas a usar
         JLabel [] labs = {jLabel1,jLabel2,jLabel3,jLabel4,jLabel5,jLabel6};
         
-        labn = labs;
-        Imagen im = new Imagen();
-        this.setTitle("Memoria Sensorial Gustativa");
-        im.setIconGeneral(this);
-        
+        labn = labs;    //Uso global
+
+        //Se establece el icono en el boton menu
         im.setImageBoton(177, 93, "BotonMenu.png", jButton14);
         
+        //Se crea el color del fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color del fondo
         
+        //Se establecen las imagenes en las labels correspondientes a los valores aleatorios
         im.setIconLabel(rand, noms, labs, 176, 121);
         
+        //Se establece el texto inicial en los botones
         this.jButton1.setText(sab[cont1++]);
         this.jButton2.setText(sab[cont2++]);
         this.jButton3.setText(sab[cont3++]);
@@ -382,97 +390,99 @@ public class MemoriaSensorialGustativa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pl.click();
-        if(cont1<sab.length){
-            this.jButton1.setText(sab[cont1++]);
+        pl.click(); //Sonido de click
+        if(cont1<sab.length){   //Si el contador es menor al largo de las opciones
+            this.jButton1.setText(sab[cont1++]);    //Se cambia el texto por la siguiente opcion
         }
         else{
-            cont1=0;
-            this.jButton1.setText(sab[cont1++]);
+            cont1=0;    //Se devuelve el contador a 0
+            this.jButton1.setText(sab[cont1++]);    //Se cambia el texto por la siguiente opcion
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        pl.click();
-        if(cont2<sab.length){
-            this.jButton2.setText(sab[cont2++]);
+        pl.click(); //Sonido de click
+        if(cont2<sab.length){   //Si el contador es menor al largo de las opciones
+            this.jButton2.setText(sab[cont2++]);    //Se cambia el texto por la siguiente opcion
         }
         else{
-            cont2=0;
-            this.jButton2.setText(sab[cont2++]);
+            cont2=0;    //Se devuelve el contador a 0
+            this.jButton2.setText(sab[cont2++]);    //Se cambia el texto por la siguiente opcion
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        pl.click();
-        if(cont3<sab.length){
-            this.jButton3.setText(sab[cont3++]);
+        pl.click(); //Sonido de click
+        if(cont3<sab.length){   //Si el contador es menor al largo de las opciones
+            this.jButton3.setText(sab[cont3++]);    //Se cambia el texto por la siguiente opcion
         }
         else{
-            cont3=0;
-            this.jButton3.setText(sab[cont3++]);
+            cont3=0;    //Se devuelve el contador a 0
+            this.jButton3.setText(sab[cont3++]);    //Se cambia el texto por la siguiente opcion
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        pl.click();
-        if(cont4<sab.length){
+        pl.click(); //Sonido de click
+        if(cont4<sab.length){   //Si el contador es menor al largo de las opciones
             this.jButton4.setText(sab[cont4++]);
         }
         else{
-            cont4=0;
+            cont4=0;    //Se devuelve el contador a 0
             this.jButton4.setText(sab[cont4++]);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        pl.click();
-        if(cont5<sab.length){
-            this.jButton5.setText(sab[cont5++]);
+        pl.click(); //Sonido de click
+        if(cont5<sab.length){   //Si el contador es menor al largo de las opciones
+            this.jButton5.setText(sab[cont5++]);    //Se cambia el texto por la siguiente opcion
         }
         else{
-            cont5=0;
-            this.jButton5.setText(sab[cont5++]);
+            cont5=0;    //Se devuelve el contador a 0
+            this.jButton5.setText(sab[cont5++]);    //Se cambia el texto por la siguiente opcion
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        pl.click();
-        if(cont6<sab.length){
-            this.jButton6.setText(sab[cont6++]);
+        pl.click(); //Sonido de click
+        if(cont6<sab.length){   //Si el contador es menor al largo de las opciones
+            this.jButton6.setText(sab[cont6++]);    //Se cambia el texto por la siguiente opcion
         }
         else{
-            cont6=0;
-            this.jButton6.setText(sab[cont6++]);
+            cont6=0;    //Se devuelve el contador a 0
+            this.jButton6.setText(sab[cont6++]);    //Se cambia el texto por la siguiente opcion
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        inter.setRanking("Mem_Sens_Gustativa", intent);
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        inter.setRanking("Mem_Sens_Gustativa", intent); //Se guarda el ranking
+        men = new Menu();   //Se inicializa menu
+        inter.back(men, this);  //Se abre menu se cierra este frame
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        pl.click();
+        pl.click(); //Sonido de click
         boolean lab1,lab2,lab3,lab4,lab5,lab6;
+        //Se verifica si el sabor se corresponde con el valor posible en cada opción
         lab1 = inter.getSabor(vals[inter.getPosLabel(labn, jLabel1)], jButton1.getText());
         lab2 = inter.getSabor(vals[inter.getPosLabel(labn, jLabel2)], jButton2.getText());
         lab3 = inter.getSabor(vals[inter.getPosLabel(labn, jLabel3)], jButton3.getText());
         lab4 = inter.getSabor(vals[inter.getPosLabel(labn, jLabel4)], jButton4.getText());
         lab5 = inter.getSabor(vals[inter.getPosLabel(labn, jLabel5)], jButton5.getText());
         lab6 = inter.getSabor(vals[inter.getPosLabel(labn, jLabel6)], jButton6.getText());
+        //Si alguna es false
         if(lab1==false || lab2==false || lab3==false || lab4==false || lab5==false || lab6==false){
-            pl.error();
-            JOptionPane.showMessageDialog(rootPane, "Cuenta con errores");
-            intent++;
-            this.jLabel8.setText("Intentos: "+intent);
+            pl.error(); //Sonido de error
+            JOptionPane.showMessageDialog(rootPane, "Cuenta con errores");  //Mensaje
+            intent++;   //Se aumentan los intentos
+            this.jLabel8.setText("Intentos: "+intent);  //Se muestran los intentos
         }
         else{
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "CORRECTO!");
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "CORRECTO!");   //Mensaje
         }
         
     }//GEN-LAST:event_jButton7ActionPerformed
