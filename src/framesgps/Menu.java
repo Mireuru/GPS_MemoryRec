@@ -16,12 +16,15 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    
+    //Se crean los objetos de las clases a usar
     Interact inter = new Interact();
     MenuActividades men;
+    Imagen im = new Imagen();
+    Player pl = new Player();
     Opciones opc;
     Records rec;
     About abo;
-    
     AtencionDividida aDiv;
     Atencion_Selectiva aSel;
     Atencion_Sostenida aSos;
@@ -37,30 +40,26 @@ public class Menu extends javax.swing.JFrame {
     MemoriaSensorialOlfativa mSenO;
     MemoriaSensorialVisualComp mSenV;
     AtencionAlternada2 letr;
-    
+    //Se crean los objetos a usar
     Object[] frames = {aDiv,aSel,aSos,aSos2,mat,col,ord,letFalt,mCoPlaz,mEpis,mSem,mSenG,mSenO,mSenV,letr};
     
-    Imagen im = new Imagen();
-    Player pl = new Player();
-    
     public Menu() {
-        
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Menu");
-        im.setIconGeneral(this);
-        
+        //Se establecen los valores del fram
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Menu");  //Titulo
+        im.setIconGeneral(this);    //Icono
+        //Se ponen imagenes en los botones
         im.setImageBoton(172,63,"about.png",jButton1);
         im.setImageBoton(178,63,"opciones.png",jButton3);
         im.setImageBoton(179,63,"records.png",jButton4);
         im.setImageBoton(277,115,"jugar.png",jButton2);
         im.setImageBoton(301,115,"actividades.png",botonActividades);
         
+        //Se crea el color a usar
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
-        jPanel1.setBackground(color);
-        
-        
+        getContentPane().setBackground(color);  //Se establece el color de fondo
+        jPanel1.setBackground(color);   //Se establece el color del panel
         
     }
 
@@ -170,7 +169,7 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Cada botón abre el frame correspondiente al mismo, con un sonido antes de hacerlo
     private void botonActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActividadesActionPerformed
         pl.click();
         men = new MenuActividades();

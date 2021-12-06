@@ -16,6 +16,7 @@ public class Records extends javax.swing.JFrame {
     /**
      * Creates new form Records
      */
+    //Crea los objetos de las clases a usar
     Interact inter = new Interact();
     Imagen im = new Imagen();
     Player pl = new Player();
@@ -23,13 +24,16 @@ public class Records extends javax.swing.JFrame {
     
     public Records() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Records");
-        im.setIconGeneral(this);
+        //Establece los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Records");   //Titulo
+        im.setIconGeneral(this);    //Icono
+        //Crea el color de fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
-        im.setImageBoton(155, 61, "BotonMenu.png", jButton14);
+        getContentPane().setBackground(color);  //Establece el color de fondo
+        im.setImageBoton(155, 61, "BotonMenu.png", jButton14);  //Icono menu
         
+        //Consulta los valores deol ranking para cada actividad y lo escribe en etiquetas
         this.jLabel3.setText(inter.getRanking("Cartas")+" errores");
         this.jLabel5.setText(inter.getRanking("Colores")+" errores");
         this.jLabel7.setText(inter.getRanking("Mem_Semantica")+" errores");
@@ -635,9 +639,9 @@ public class Records extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Menu
+        inter.back(men, this);  //Abre menu
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**

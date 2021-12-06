@@ -13,19 +13,11 @@ import javax.swing.ImageIcon;
  * @author ERIK
  */
 public class MenuActividades extends javax.swing.JFrame {
-    int a = 1;
-     Imagen im = new Imagen();
-        String avance = "avanza.png";
-        String retroceso = "retrocede.png";
-        
-        String imagen1 = "calendario.png";
-        String imagen2 = "Memoria.png";
-        String imagen3 = "matematicas.png";
-        String imagen4 = "diario.png";
-        String imagen5 = "ArbolGenealogico.png";
-        String imagen6 = "Historia.png";
-        String imagen7 = "memorama.png";
-        
+    
+    //Crea los objetos de las clases a usar
+    Interact inter = new Interact();
+    Player pl = new Player();
+    Imagen im = new Imagen();
     Calendario cal;
     MemoriaCortoPlazo mem;
     CalculosMatematicos mat;
@@ -34,26 +26,38 @@ public class MenuActividades extends javax.swing.JFrame {
     Historias hist;
     Menu men;
     Cartas car;
-    Interact inter = new Interact();
-    Player pl = new Player();
-       
+    //Se crean los objetos a usar
+    String avance = "avanza.png";
+    String retroceso = "retrocede.png";
+    String imagen1 = "calendario.png";
+    String imagen2 = "Memoria.png";
+    String imagen3 = "matematicas.png";
+    String imagen4 = "diario.png";
+    String imagen5 = "ArbolGenealogico.png";
+    String imagen6 = "Historia.png";
+    String imagen7 = "memorama.png";
+    int a = 1;   
+    
     /**
      * Creates new form MenuActividades
      */
     public MenuActividades() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Actividades");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Actividades");   //Titulo
+        im.setIconGeneral(this);    //Icono
         String menu = "BotonMenu.png";
+        //Se establecen los iconos necesarios
         im.setImageBoton(221,86,menu, botonMenu);
         im.setImageBoton(354,274,"calendario.png",jButton1);
         im.setImageBoton(134,169,avance, jButton3);
         im.setImageBoton(134,169,retroceso,jButton2);
         
+        //Crea el color a usar
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
-        jPanel1.setBackground(color);
+        getContentPane().setBackground(color);  //Establece el color de fondo
+        jPanel1.setBackground(color);   //Establece el color de panel
     }
 
     /**
@@ -154,7 +158,7 @@ public class MenuActividades extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Verifica si el click llega al límite y salta al fin o principio y actualiza en relacion a ello
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         pl.click();
         if (a>1) 
@@ -174,7 +178,8 @@ public class MenuActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pl.click(); 
+        pl.click(); //Sonido de click
+        //Abre el frame indicado por el contador
         switch (a) {
             case 1: a=1;
                 cal = new Calendario();
@@ -207,10 +212,12 @@ public class MenuActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Menu
+        inter.back(men, this);  //Abre menu
     }//GEN-LAST:event_botonMenuActionPerformed
+    
+    //Este metodo refresca la actividad en visualización volviendo a poner las imagenes
     public void actualizar(){
         switch (a) {
             case 1: a=1;

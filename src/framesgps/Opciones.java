@@ -23,6 +23,7 @@ public class Opciones extends javax.swing.JFrame {
     /**
      * Creates new form Opciones
      */
+    //Crea los objetos de las clases a usar
     Player pl = new Player();
     Interact inter = new Interact();
     Menu men;
@@ -30,13 +31,15 @@ public class Opciones extends javax.swing.JFrame {
     
     public Opciones() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Opciones");
-        im.setIconGeneral(this);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Opciones");  //Titulo
+        im.setIconGeneral(this);    //Icono
+        //Se crea el color a usar
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
-        this.jSlider1.setValue((int) (pl.vol()*100));
-        im.setImageBoton(200, 100, "BotonMenu.png", jButton14);
+        getContentPane().setBackground(color);  //Se establece el color de fondo
+        this.jSlider1.setValue((int) (pl.vol()*100));   //Se pone el valor del volumen
+        im.setImageBoton(200, 100, "BotonMenu.png", jButton14); //Icono de menu
     }
 
     /**
@@ -158,14 +161,15 @@ public class Opciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        this.jSlider1.setValue(0);
+        this.jSlider1.setValue(0);  //Se pone el valor a 0
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        //Se encarga de escribir el valor que se introduce a traves del frame en el archivo de volumen
         FileWriter fw = null;
         try {
             this.jLabel2.setText(this.jSlider1.getValue() + "%");
-            String ruta = "/conf/vol.txt";
+            String ruta = "/conf/vol.conf";
             try {
                 File cla = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
                 File file = new File(cla.getParentFile().getPath()+ruta);
@@ -189,9 +193,9 @@ public class Opciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        men = new Menu();   //Menu
+        inter.back(men, this);  //Abre menu
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**

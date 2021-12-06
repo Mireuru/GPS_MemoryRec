@@ -19,63 +19,63 @@ public class MemoriaSensorialVisualFalt extends javax.swing.JFrame {
     /**
      * Creates new form MemoriaSensorialVisualFalt
      */
+    //Se crean los objetos de las clases a usar
     Imagen im = new Imagen();
     Interact inter = new Interact();
     Menu men;
-    int cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, cont5 = 0, cont6 = 0,cont7 = 0,cont8 = 0, cont9 = 0, cont10 = 0,cont11 = 0,cont12 = 0;
-    
+    Player pl = new Player();
+    Rand ra = new Rand();
+    //Se crean los objetos a usar
     JButton [] botn;
     String [] name;
+    int cont1 = 0, cont2 = 0, cont3 = 0, cont4 = 0, cont5 = 0, cont6 = 0,cont7 = 0,cont8 = 0, cont9 = 0, cont10 = 0,cont11 = 0,cont12 = 0;
     int [] vals;
     int [] fal;
-    
-    Player pl = new Player();
     int intent = 0;
     
     public MemoriaSensorialVisualFalt(int [] rand, String [] noms) {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Memoria Sensorial Visual");
-        im.setIconGeneral(this);
-        
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Memoria Sensorial Visual");  //Titulo
+        im.setIconGeneral(this);    //Icono
+        //Botones a usar
         JButton [] bots = {jButton1,jButton2,jButton3,jButton4,
                            jButton5,jButton6,jButton7,jButton8,
                            jButton9,jButton10,jButton12,jButton11};
-        
         botn = bots;
         vals = rand;
         name = noms;
         
-        Rand ra = new Rand();
-        
+        //Se establecen los iconos en los botones necesarios
         im.setImageBoton(200, 100, "BotonMenu.png", jButton14);
         im.setImageBoton(200, 100, "revisar.png", jButton16);
-        
         im.setIconBoton(rand, noms, bots, 150, 150);
         im.setIconBotonDisabled(rand, noms, bots, 150, 150);
         
+        //Se obtienen numeros para posiciones faltantes
         int [] falt = ra.getNumerosFaltantes(rand, 4);
-        
         fal = falt;
         
+        //Se deshabilitan los botones
         for (int i = 1; i <= bots.length; i++) {
-            bots[i-1].setEnabled(false);;
+            bots[i-1].setEnabled(false);
         }
         
+        //Se elimina la imagen de los faltantes, se habilitan y se les agrega un borde
         for (int i = 1; i <= bots.length; i++) {
             for (int j = 0; j < falt.length; j++) {
                 if(i == falt[j]){
                     bots[i-1].setIcon(null);
                     bots[i-1].setEnabled(true);
                     bots[i-1].setBorder(BorderFactory.createLineBorder(Color.black,3));
-
-                    
                 }
             }
         }
         
+        //Se crea el color del fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color del fondo
         
     }
         /**
@@ -351,15 +351,16 @@ public class MemoriaSensorialVisualFalt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        inter.setRanking("Mem_Sens_Visual", intent);
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        inter.setRanking("Mem_Sens_Visual", intent);    //Se guarda el ranking
+        men = new Menu();   //Se inicializa menu
+        inter.back(men, this);  //Se abre menu, se cierra este frame
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-    pl.click();
+    pl.click(); //Sonido de click
     boolean fla = false;
+    //Se verifica si el valor del contador en cada botón faltante es igual al correspondiente en vals
     for (int i = 1; i <= botn.length; i++) {
         for (int j = 0; j < fal.length; j++) {
             if(i == fal[j]){
@@ -373,27 +374,27 @@ public class MemoriaSensorialVisualFalt extends javax.swing.JFrame {
             }
         }
     }
-    if(fla){
-        pl.victoria();
-        JOptionPane.showMessageDialog(rootPane,"¡CORRECTO!");   
+    if(fla){    //Si es así 
+        pl.victoria();  //Sonido de victoria
+        JOptionPane.showMessageDialog(rootPane,"¡CORRECTO!");   //Mensaje
     }
     else{
-        pl.error();
-        JOptionPane.showMessageDialog(rootPane,"Cuenta con errores");
-        intent++;
-        this.jLabel2.setText("Intentos: "+intent);
+        pl.error(); //Sonido de error
+        JOptionPane.showMessageDialog(rootPane,"Cuenta con errores");   //Mensaje
+        intent++;   //Aumenta los intentos
+        this.jLabel2.setText("Intentos: "+intent);  //Se escriben los intentos
     }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    pl.click();
-    if(this.jButton1.isEnabled()){
-        if(cont1<name.length){
-            im.setImageBoton(150, 150,name[cont1++], jButton1);
+    pl.click(); //Sonido de click
+    if(this.jButton1.isEnabled()){  //Si el botón está habilitado
+        if(cont1<name.length){  //Si el contador es menor al largo de las imagenes posibles
+            im.setImageBoton(150, 150,name[cont1++], jButton1); //Se cambia la imagen
         }
-        else{
-            cont1 = 0;
-            im.setImageBoton(150, 150,name[cont1++], jButton1);
+        else{   //Si no
+            cont1 = 0;  //Se establece a 0
+            im.setImageBoton(150, 150,name[cont1++], jButton1); //Se cambia la imagen
         }
 
     }
@@ -549,6 +550,7 @@ public class MemoriaSensorialVisualFalt extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    //Metodo para obtener el valor de un contador
     public int getContador(int val){
         int cont = 0;
         switch(val){
