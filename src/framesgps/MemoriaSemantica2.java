@@ -17,51 +17,56 @@ public class MemoriaSemantica2 extends javax.swing.JFrame {
     /**
      * CreatesMemoriaSemantica2rm Colores
      */
+    //Se crean los objetos de las clases a usar
     Menu men;
     Interact inter = new Interact();
-    boolean seleccionando = false;
-    int [] vals;
-    JButton pres;
-    JButton seg;
-    int cont = 0;
-    int gen = 0;
-    
     Player pl = new Player();
-    
+    Rand ra = new Rand();
+    Imagen im = new Imagen();
+    //Se crean los objetos a usar
     JButton [] botImg = new JButton[5];
     JButton [] botCol;
+    JButton pres;
+    JButton seg;
+    boolean seleccionando = false;
+    int [] vals;
+    int cont = 0;
+    int gen = 0;
     int aciertos = 0;
     int errores = 0;
     
     public MemoriaSemantica2() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Memoria Semantica2");    //Titulo
+        im.setIconGeneral(this);    //Icono
         
-        Rand ra = new Rand();
+        int[] rand = ra.getNumeros(5);  //Array de valores aleatorios entre 1-5
         
-        int[] rand = ra.getNumeros(5);
+        vals = rand;    //Uso global
         
-        vals = rand;
-        
-        Imagen im = new Imagen();
-        this.setTitle("Memoria Semantica2");
-        im.setIconGeneral(this);
-        
+        //Se crea el color de fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color de fondo
         
+        //Se crea un arreglo con los nombres de imagen a usar
         String [] noms = {"diente.png","flor.png","estrella.png","arbol.png","manzana.png"};
         
+        //Se crea un arreglo con los botones a usar para imagenes
         JButton [] bots = {jButton1,jButton2,jButton3,jButton4,jButton5};
         
-        botImg = bots;
+        botImg = bots;  //Uso global
         
+        //Se crea un arreglo para los botones a usar para colores
         JButton [] col = {jButton6,jButton7,jButton8,jButton9,jButton10,jButton11,jButton12};
         
-        botCol = col;
+        botCol = col;   //Uso global
         
+        //Se establecen los iconos de los botones
         im.setIconBoton(rand, noms, bots, 200,150);
         
+        //Se establece el icono del boton menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton13);
         
     }
@@ -320,195 +325,201 @@ public class MemoriaSemantica2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        pl.click();
-        inter.setRanking("Colores", errores);
-        men = new Menu();
-        inter.back(men,this);
+        pl.click(); //Sonido de click
+        inter.setRanking("Colores", errores);   //Se guarda el ranking
+        men = new Menu();   //Se inicializa el menu
+        inter.back(men,this);   //Se abre menu, se cierra este frame
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        presBotonColor(jButton11);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBotonColor(jButton11);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);   //Se deshabilitan los botones restantes
             }
         }
         
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       presBoton(jButton1);
-       if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+       presBoton(jButton1);  //Se verifica la presión de un botón de imagen
+       if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        presBotonColor(jButton7);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBotonColor(jButton7);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        presBotonColor(jButton6);
-        if(aciertos==5){
+        presBotonColor(jButton6);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
             pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        presBotonColor(jButton9);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBotonColor(jButton9);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        presBotonColor(jButton10);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBotonColor(jButton10);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        presBotonColor(jButton8);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBotonColor(jButton8);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        presBotonColor(jButton12);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBotonColor(jButton12);  //Se verifica la presión de un botón de color
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        presBoton(jButton2);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBoton(jButton2);  //Se verifica la presión de un botón de imagen
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        presBoton(jButton3);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBoton(jButton3);  //Se verifica la presión de un botón de imagen
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        presBoton(jButton4);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBoton(jButton4);  //Se verifica la presión de un botón de imagen
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        presBoton(jButton5);
-        if(aciertos==5){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");
+        presBoton(jButton5);  //Se verifica la presión de un botón de imagen
+        if(aciertos==5){    //Si los acietos son 5
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "BUEN TRABAJO!!");  //Mensaje
             for(int i=0;i<botCol.length;i++){
-                botCol[i].setEnabled(false);
+                botCol[i].setEnabled(false);    //Se deshabilitan los botones restantes
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    //Metodo para verificar presion de boton de color
     public void presBotonColor(JButton but){
-        pl.click();
+        pl.click(); //Sonido de click
         boolean espareja;
-        if(cont==0){
-            pres = but;
-            pres.setEnabled(false);
-            cont++;
+        if(cont==0){    //Si no hay botones presionados
+            pres = but; //Se establece como el primer boton presionado
+            pres.setEnabled(false); //Se deshabilita
+            cont++; //Se aumenta el contador de botones presionados
         }
-        else{
-            seg = but;
-            seg.setEnabled(false);
+        else{   //Si ya hay botones presionados
+            seg = but;  //Se establece como el segundo
+            seg.setEnabled(false);  //Se deshabilita
+            //Revisa si los botones se corresponden, siendo el color un valor de posición y el otro
+            //valor debe hacer referencia a un botón de imagen y devolver su valor en vals
             espareja = inter.getColorCorr(inter.getPosBoton(botCol, seg),vals[inter.getPosBoton(botImg, pres)]);
-            if(espareja){
-                pl.acierto();
-                aciertos++;
+            if(espareja){   //Si son pareja
+                pl.acierto();   //Sonido de acierto
+                aciertos++; //Aumentan los aciertos
             }
             else{
-                pl.error();
-                errores++;
-                this.jLabel2.setText(errores+"");
+                pl.error(); //Sonido de error
+                errores++;  //Aumenan los errores
+                this.jLabel2.setText(errores+"");   //Se escriben los errores
             }
-            inter.accPareja(espareja, pres, seg);
-            cont = 0;
+            inter.accPareja(espareja, pres, seg);   //Se habilitan o deshabilitan los botones
+            cont = 0;   //Se devuelve el contador a 0
         }
     }
     
+    //Metodo para verificar presion de botón de imagen
     public void presBoton(JButton but){
-        pl.click();
+        pl.click(); //Sonido de click
         boolean espareja;
-        if(cont==0){
-            pres = but;
-            pres.setEnabled(false);
-            cont++;
+        if(cont==0){    //Si no hay botones presionados
+            pres = but; //Se establece como el primer boton presionado
+            pres.setEnabled(false); //Se deshabilita
+            cont++; //Se aumenta el contador de botones presionados
         }
-        else{
-            seg = but;
-            seg.setEnabled(false);
-            cont++;
+        else{   //Si ya hay botones presionados
+            seg = but;  //Se establece como el segundo
+            seg.setEnabled(false);  //Se deshabilita
+            cont++; //Se aumenta el contador de botones presionados
+            //Revisa si los botones se corresponden, siendo el color un valor de posición y el otro
+            //valor debe hacer referencia a un botón de imagen y devolver su valor en vals
             espareja = inter.getColorCorr(inter.getPosBoton(botCol, pres),vals[inter.getPosBoton(botImg, seg)]);
-            if(espareja){
-                pl.acierto();
-                aciertos++;
+            if(espareja){   //Si son pareja
+                pl.acierto();   //Sonido de acierto
+                aciertos++; //Aumentan los aciertos
             }
             else{
-                pl.error();
-                errores++;
-                this.jLabel2.setText(errores+"");
+                pl.error(); //Sonido de error
+                errores++;  //Aumenan los errores
+                this.jLabel2.setText(errores+"");   //Se escriben los errores
             }
-            inter.accPareja(espareja, pres, seg);
-            cont = 0;
+            inter.accPareja(espareja, pres, seg);   //Se habilitan o deshabilitan los botones
+            cont = 0;   //Se devuelve el contador a 0
         }
     }
     /*
