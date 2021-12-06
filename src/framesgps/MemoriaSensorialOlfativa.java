@@ -17,44 +17,46 @@ public class MemoriaSensorialOlfativa extends javax.swing.JFrame {
     /**
      * Creates new form MemoriaSensorialOlfativa
      */
-    
+    //Se crean los objetos de las clases a usar
     Rand ra = new Rand();
     Menu men;
     Interact inter = new Interact();
-    
+    Player pl = new Player();
+    Imagen im = new Imagen();
+    //Se crean los objetos a usar
     JLabel [] labn = new JLabel[8];
     int [] vals;
-    
-    Player pl = new Player();
     int aciertos = 0;
     int errores = 0;
     
     public MemoriaSensorialOlfativa() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        //Se establecen los valores del frame
+        this.setLocationRelativeTo(null);   //Centrar
+        this.setTitle("Memoria Sensorial Olfativa");    //Titulo
+        im.setIconGeneral(this);    //Icono
         
-        int[] rand = ra.getNumeros(6);
+        int[] rand = ra.getNumeros(6);  //Valores entre 1-6 aleatorios
         
-        vals = rand;
+        vals = rand;    //Uso global
         
+        //Nombres a usar
         String [] noms = {"cafe1.jpg","cebolla.jpg","cigarro.jpg","rosa1.jpg","lavanda.jpg","calcetines.jpg"};
         
+        //Botones a usar
         JLabel [] labs = {jLabel1,jLabel2,jLabel3,jLabel4,jLabel5,jLabel6};
         
-        labn = labs;
+        labn = labs;    //Uso global
         
-        Imagen im = new Imagen();
-        this.setTitle("Memoria Sensorial Olfativa");
-        im.setIconGeneral(this);
-        
+        //Se establece la imagen del boton menu
         im.setImageBoton(200, 100, "BotonMenu.png", jButton14);
         
-        
-        
+        //Se establecen las imagenes en las etiquetas correspondientes
         im.setIconLabel(rand, noms, labs, 190, 121);
         
+        //Se crea el color del fondo
         Color color = new Color(102, 189, 230);
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(color);  //Se establece el color del fondo
     }
 
     /**
@@ -304,159 +306,161 @@ public class MemoriaSensorialOlfativa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        pl.click();
-        inter.setRanking("Mem_Sens_Olfativa", errores);
-        men = new Menu();
-        inter.back(men, this);
+        pl.click(); //Sonido de click
+        inter.setRanking("Mem_Sens_Olfativa", errores); //Se guarda el ranking
+        men = new Menu();   //Se inicializa menu    
+        inter.back(men, this);  //Se abre menu y se cierra el frame actual
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        botonAgr(jLabel1);
-        if(!jLabel1.isEnabled()){
-            jButton1.setEnabled(false);
+        botonAgr(jLabel1);  //Se verifica el boton de Agradable
+        if(!jLabel1.isEnabled()){   //Si el label está deshabilitado
+            jButton1.setEnabled(false); //Se deshabilitan sus botones
             jButton2.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        botonDes(jLabel1);
-        if(!jLabel1.isEnabled()){
-            jButton1.setEnabled(false);
+        botonDes(jLabel1);  //Se verifica el boton de Desgradable
+        if(!jLabel1.isEnabled()){   //Si el label está deshabilitado
+            jButton1.setEnabled(false); //Se deshabilitan sus botones
             jButton2.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        botonAgr(jLabel2);
-        if(!jLabel2.isEnabled()){
-            jButton3.setEnabled(false);
+        botonAgr(jLabel2);  //Se verifica el boton de Agradable
+        if(!jLabel2.isEnabled()){   //Si el label está deshabilitado
+            jButton3.setEnabled(false); //Se deshabilitan sus botones
             jButton4.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        botonDes(jLabel2);
-        if(!jLabel2.isEnabled()){
-            jButton3.setEnabled(false);
+        botonDes(jLabel2);  //Se verifica el boton de Desagradable
+        if(!jLabel2.isEnabled()){   //Si el label está deshabilitado
+            jButton3.setEnabled(false); //Se deshabilitan sus botones
             jButton4.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        botonAgr(jLabel3);
-        if(!jLabel3.isEnabled()){
-            jButton5.setEnabled(false);
+        botonAgr(jLabel3);  //Se verifica el boton de Agradable
+        if(!jLabel3.isEnabled()){   //Si el label está deshabilitado
+            jButton5.setEnabled(false); //Se deshabilitan sus botones
             jButton6.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        botonDes(jLabel3);
-        if(!jLabel3.isEnabled()){
-            jButton5.setEnabled(false);
+        botonDes(jLabel3);  //Se verifica el boton de Desagradable
+        if(!jLabel3.isEnabled()){   //Si el label está deshabilitado
+            jButton5.setEnabled(false); //Se deshabilitan sus botones
             jButton6.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        botonAgr(jLabel4);
-        if(!jLabel4.isEnabled()){
-            jButton7.setEnabled(false);
+        botonAgr(jLabel4);  //Se verifica el boton de Agradable
+        if(!jLabel4.isEnabled()){   //Si el label está deshabilitado
+            jButton7.setEnabled(false); //Se deshabilitan sus botones
             jButton8.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        botonDes(jLabel4);
-        if(!jLabel4.isEnabled()){
-            jButton7.setEnabled(false);
+        botonDes(jLabel4);  //Se verifica el boton de Desagradable
+        if(!jLabel4.isEnabled()){   //Si el label está deshabilitado
+            jButton7.setEnabled(false); //Se deshabilitan sus botones
             jButton8.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        botonAgr(jLabel5);
-        if(!jLabel5.isEnabled()){
-            jButton9.setEnabled(false);
+        botonAgr(jLabel5);  //Se verifica el boton de Agradable
+        if(!jLabel5.isEnabled()){   //Si el label está deshabilitado
+            jButton9.setEnabled(false); //Se deshabilitan sus botones
             jButton10.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        botonDes(jLabel5);
-        if(!jLabel5.isEnabled()){
-            jButton9.setEnabled(false);
+        botonDes(jLabel5);  //Se verifica el boton de Desagradable
+        if(!jLabel5.isEnabled()){   //Si el label está deshabilitado
+            jButton9.setEnabled(false); //Se deshabilitan sus botones
             jButton10.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        botonAgr(jLabel6);
-        if(!jLabel6.isEnabled()){
-            jButton11.setEnabled(false);
+        botonAgr(jLabel6);  //Se verifica el boton de Agradable
+        if(!jLabel6.isEnabled()){   //Si el label está deshabilitado
+            jButton11.setEnabled(false); //Se deshabilitan sus botones
             jButton12.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        botonDes(jLabel6);
-        if(!jLabel6.isEnabled()){
-            jButton11.setEnabled(false);
+        botonDes(jLabel6);  //Se verifica el boton de Desagradable
+        if(!jLabel6.isEnabled()){   //Si el label está deshabilitado
+            jButton11.setEnabled(false); //Se deshabilitan sus botones
             jButton12.setEnabled(false);
         }
-        if(aciertos==6){
-            pl.victoria();
-            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");
+        if(aciertos==6){    //Si los aciertos son 6
+            pl.victoria();  //Sonido de victoria
+            JOptionPane.showMessageDialog(rootPane, "MUY BIEN!!");  //Mensaje
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    //Botón agradable
     public void botonAgr(JLabel loc){
-        pl.click();
+        pl.click(); //Sonido de click
         boolean flag = false;
+        //Verifica si el valor se corresponde con un que sea agradable
         switch(vals[inter.getPosLabel(labn, loc)]){
             case 1 : flag = true;
                 break;
@@ -467,21 +471,23 @@ public class MemoriaSensorialOlfativa extends javax.swing.JFrame {
             default: flag = false;
                 break;
         }
-        if(flag){
-            pl.acierto();
-            loc.setEnabled(false);
-            aciertos++;
+        if(flag){   //Si lo es
+            pl.acierto();   //Sonido de acierto
+            loc.setEnabled(false);  //Se deshabilita la etiqueta
+            aciertos++;//Acietos aumenta
         }
         else{
-            pl.error();
-            errores++;
-            this.jLabel8.setText("Errores: "+errores);
+            pl.error(); //Sonido de error
+            errores++;  //Errroes aumenta
+            this.jLabel8.setText("Errores: "+errores);  //Se escriben los errores
         }
     }
     
+    //Boton desagradable
     public void botonDes(JLabel loc){
-        pl.click();
-        boolean flag = false;
+        pl.click(); //Sonido de click
+        boolean flag = false;   
+        //Verifica si el valor se corresponde con uno que sea desagradable
         switch(vals[inter.getPosLabel(labn, loc)]){
             case 2 : flag = true;
                 break;
@@ -492,15 +498,15 @@ public class MemoriaSensorialOlfativa extends javax.swing.JFrame {
             default: flag = false;
                 break;
         }
-        if(flag){
-            pl.acierto();
-            loc.setEnabled(false);
-            aciertos++;
+        if(flag){   //Si lo es
+            pl.acierto();   //Sonido de acierto
+            loc.setEnabled(false);  //Se deshabilita la etiqueta
+            aciertos++;//Acietos aumenta
         }
         else{
-            pl.error();
-            errores++;
-            this.jLabel8.setText("Errores: "+errores);
+            pl.error(); //Sonido de error
+            errores++;  //Errroes aumenta
+            this.jLabel8.setText("Errores: "+errores);  //Se escriben los errores
         }
     }
     
