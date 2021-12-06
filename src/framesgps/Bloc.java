@@ -431,10 +431,13 @@ public class Bloc extends javax.swing.JFrame {
     }//GEN-LAST:event_Exit1ActionPerformed
 
     private void ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirActionPerformed
+        //llamada al metodo guardar
         saveArchive();
+        //Seleccionar archivo
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
+        
+        //variable archive se iguala al archivo seleccionado y se imprime desde el escritorio
         if (JFileChooser.APPROVE_OPTION == fileChooser.showOpenDialog(Bloc.this)) {
             File archive = fileChooser.getSelectedFile();
 
