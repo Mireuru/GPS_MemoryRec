@@ -7,6 +7,7 @@ package framesgps;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,11 @@ public class Player {
     
     //Inicializa el objeto de la clase
     public Player() {
+        try {
+            this.cla = new File(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+        }
         player = new BasicPlayer();
     }
     
